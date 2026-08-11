@@ -3,23 +3,24 @@
 import { useState, type FormEvent } from "react";
 import Reveal from "./Reveal";
 import SectionEyebrow from "./SectionEyebrow";
+import { getCookie, setCookie } from "@/lib/cookies";
 
 const FORMSPREE_ID = "mljrbbpg";
-const MAX_SUBMISSIONS_PER_SESSION = 2;
-const SESSION_KEY = "contact-submissions";
+const MAX_SUBMISSIONS = 2;
+const COOKIE_NAME = "contact-submissions";
+const COOKIE_DAYS = 30;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export default function Contact() {
   const formEnabled = FORMSPREE_ID.length > 0;
   const [submitCount, setSubmitCount] = useState(() => {
-    if (typeof window === "undefined") return 0;
-    const stored = Number(sessionStorage.getItem(SESSION_KEY) ?? "0");
+    const stored = Number(getCookie(COOKIE_NAME) ?? "0");
     return Number.isFinite(stored) ? stored : 0;
   });
   const [status, setStatus] = useState<Status>("idle");
 
-  const limitReached = submitCount >= MAX_SUBMISSIONS_PER_SESSION;
+  const limitReached = submitCount >= MAX_SUBMISSIONS;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -38,7 +39,7 @@ export default function Contact() {
       if (!res.ok) throw new Error("submission failed");
 
       const next = submitCount + 1;
-      sessionStorage.setItem(SESSION_KEY, String(next));
+      setCookie(COOKIE_NAME, String(next), COOKIE_DAYS);
       setSubmitCount(next);
       setStatus("success");
       form.reset();
@@ -90,8 +91,8 @@ export default function Contact() {
             </div>
           ) : limitReached ? (
             <div className="rounded-2xl border border-dashed border-border p-8 font-mono text-sm leading-relaxed text-fg-muted">
-              You&apos;ve sent {MAX_SUBMISSIONS_PER_SESSION} messages this
-              session — for anything further, email me directly at{" "}
+              You&apos;ve sent {MAX_SUBMISSIONS} messages from this browser
+              — for anything further, email me directly at{" "}
               <a
                 href="mailto:matthewklette14@gmail.com"
                 className="text-fg underline underline-offset-2"
@@ -178,12 +179,9 @@ export default function Contact() {
                 </button>
                 {status === "success" && (
                   <span className="font-mono text-xs text-fg-muted">
-                    Sent — thanks.{" "}
-                    {MAX_SUBMISSIONS_PER_SESSION - submitCount} message
-                    {MAX_SUBMISSIONS_PER_SESSION - submitCount === 1
-                      ? ""
-                      : "s"}{" "}
-                    left this session.
+                    Sent — thanks. {MAX_SUBMISSIONS - submitCount} message
+                    {MAX_SUBMISSIONS - submitCount === 1 ? "" : "s"} left from
+                    this browser.
                   </span>
                 )}
                 {status === "error" && (
