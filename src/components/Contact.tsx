@@ -3,11 +3,7 @@
 import Reveal from "./Reveal";
 import SectionEyebrow from "./SectionEyebrow";
 
-// To enable the form, sign up at formspree.io (free tier, no card
-// required) using mbkconsultinggroup@gmail.com, create a form targeting
-// that address, and paste the form ID below. See README.md for the full
-// walkthrough. Until then the form falls back to a mailto link.
-const FORMSPREE_ID = "";
+const FORMSPREE_ID = "mljrbbpg";
 
 export default function Contact() {
   const formEnabled = FORMSPREE_ID.length > 0;
