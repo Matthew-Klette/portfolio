@@ -35,7 +35,7 @@ All copy lives directly in the section components — there's no CMS or data fil
 | Case studies | `src/components/Work.tsx` |
 | Experience (role, scope of ownership) | `src/components/Experience.tsx` |
 | Education (BCAD course clusters) | `src/components/Education.tsx` |
-| Email, LinkedIn, contact form | `src/components/Contact.tsx` |
+| Email, LinkedIn | `src/components/Contact.tsx` |
 | Footer | `src/components/Footer.tsx` |
 | Site title/meta description, favicon | `src/app/layout.tsx` |
 | Colors, fonts | `src/app/globals.css` (`--bg`, `--fg`, `--off-white`, `--border` custom properties) |
@@ -50,19 +50,9 @@ grep -rn "\[" src/components
 
 Drop your resume PDF at `public/resume.pdf` — the Hero "Download Resume" button already links to `/resume.pdf`.
 
-### Contact form
+### Contact
 
-The form is built and ready — it just needs a Formspree endpoint to submit to. Until then it falls back to a disabled-state message, and the mailto link above it always works regardless.
-
-To enable it (free, no card required):
-
-1. Go to [formspree.io](https://formspree.io) and sign up using `mbkconsultinggroup@gmail.com`.
-2. Create a new form. Formspree will ask you to confirm the target address by clicking a link sent to that inbox — do that first, or submissions won't deliver.
-3. Copy the form ID from the endpoint Formspree gives you (`https://formspree.io/f/xxxxxxxx` — the `xxxxxxxx` part).
-4. Set `FORMSPREE_ID` in `src/components/Contact.tsx` to that ID.
-5. Push. The form goes live on the next deploy.
-
-Spam protection already built in: a honeypot field (`_gotcha`) invisible to real visitors but visible to naive bots — Formspree drops any submission where it's filled in — plus field length caps. Formspree's free tier also runs its own spam filtering on top of that.
+Contact is a plain `mailto:` link — no form, no third-party service, no data collection. Clicking it opens the visitor's default mail app addressed to you directly.
 
 ### Logo / favicon
 
