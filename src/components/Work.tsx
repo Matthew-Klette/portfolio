@@ -34,12 +34,13 @@ const CASE_STUDIES = [
   },
   {
     tag: "Independent Project",
-    title: "[PROJECT NAME] — self-built automation tool",
-    problem: "[Describe the gap or repetitive problem this project solves.]",
+    title: "AI-orchestrated workflow automation",
+    problem:
+      "Manually maintained cross-system workflows — syncing data between a BI warehouse, a knowledge/PM tool, and team communication — broke in predictable but disruptive ways: duplicate-record loops when a sync re-ran, approval steps that silently stalled with no escalation, and race conditions when two triggers fired on the same record within seconds of each other.",
     approach:
-      "[Describe the architecture and technical decisions — stack, integrations, tradeoffs.]",
+      "Built a personal automation toolkit in n8n that orchestrates BigQuery, Notion, and team messaging into a single pipeline, with an LLM step (Anthropic API) handling summarization and routing decisions mid-flow. Added idempotency keys to kill duplicate-record loops, timeout-based escalation so stuck approvals surface instead of stalling silently, and locking logic so concurrent triggers can't corrupt the same record.",
     outcome:
-      "[Describe current usage, results, or what shipping it taught you.]",
+      "A reusable automation pattern — not a one-off script — that now underpins how I connect BI, PM, and AI systems on client work, with the failure modes that used to require manual babysitting handled automatically.",
   },
 ];
 

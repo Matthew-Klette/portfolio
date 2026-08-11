@@ -3,9 +3,10 @@
 import Reveal from "./Reveal";
 import SectionEyebrow from "./SectionEyebrow";
 
-// To enable the form, replace FORMSPREE_ID below with your Formspree
-// endpoint id (see README.md). Until then the form falls back to a
-// mailto link and posting is disabled.
+// To enable the form, sign up at formspree.io (free tier, no card
+// required) using mbkconsultinggroup@gmail.com, create a form targeting
+// that address, and paste the form ID below. See README.md for the full
+// walkthrough. Until then the form falls back to a mailto link.
 const FORMSPREE_ID = "";
 
 export default function Contact() {
@@ -20,7 +21,7 @@ export default function Contact() {
         </h2>
         <p className="mb-12 max-w-xl font-mono text-sm leading-relaxed text-fg-muted">
           Reach out directly or send a message below. I typically respond
-          within [TIMEFRAME].
+          within 1-2 business days.
         </p>
       </Reveal>
 
@@ -34,7 +35,7 @@ export default function Contact() {
               matthewklette14@gmail.com
             </a>
             <a
-              href="https://linkedin.com/in/[YOUR-LINKEDIN]"
+              href="https://www.linkedin.com/in/matthew-klette-416a51320/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-fg-muted transition-colors hover:text-fg"
@@ -63,6 +64,8 @@ export default function Contact() {
                   name="name"
                   type="text"
                   required
+                  maxLength={100}
+                  autoComplete="name"
                   className="w-full rounded-lg border border-border bg-bg-elevated px-4 py-3 font-mono text-sm text-fg outline-none focus:border-fg"
                 />
               </div>
@@ -78,6 +81,8 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
+                  maxLength={254}
+                  autoComplete="email"
                   className="w-full rounded-lg border border-border bg-bg-elevated px-4 py-3 font-mono text-sm text-fg outline-none focus:border-fg"
                 />
               </div>
@@ -86,14 +91,29 @@ export default function Contact() {
                   htmlFor="message"
                   className="mb-2 block font-mono text-xs uppercase tracking-widest text-fg-muted"
                 >
-                  Message
+                  What do you need done?
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={5}
                   required
+                  maxLength={2000}
                   className="w-full resize-none rounded-lg border border-border bg-bg-elevated px-4 py-3 font-mono text-sm text-fg outline-none focus:border-fg"
+                />
+              </div>
+              {/* Honeypot: hidden from real users via CSS, invisible to
+                  screen readers via aria-hidden. Bots that fill in every
+                  field trip this; Formspree silently drops the submission
+                  when it's non-empty instead of forwarding it to your inbox. */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="_gotcha">Leave this field empty</label>
+                <input
+                  id="_gotcha"
+                  name="_gotcha"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
                 />
               </div>
               <button
@@ -108,8 +128,7 @@ export default function Contact() {
               Contact form is disabled — set{" "}
               <code className="text-fg">FORMSPREE_ID</code> in{" "}
               <code className="text-fg">src/components/Contact.tsx</code> to
-              enable it, or remove this block and use the email link
-              directly.
+              enable it (see README.md), or use the email link directly.
             </div>
           )}
         </Reveal>

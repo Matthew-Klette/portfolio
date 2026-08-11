@@ -77,8 +77,9 @@ export default function Education() {
             BCAD — Application Development
           </h3>
           <p className="font-mono text-sm text-fg-muted">
-            In progress · [Institution name] — plus a completed Higher
-            Certificate in Mobile Application and Web Development.
+            In progress · IIE Varsity College, Nelson Mandela Bay — plus a
+            completed Higher Certificate in Mobile Application and Web
+            Development.
           </p>
         </div>
       </Reveal>
