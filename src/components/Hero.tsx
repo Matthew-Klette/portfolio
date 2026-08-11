@@ -1,3 +1,5 @@
+import Logo3D from "./Logo3D";
+
 export default function Hero() {
   return (
     <section
@@ -8,9 +10,7 @@ export default function Hero() {
         <span className="font-mono text-xs uppercase tracking-widest text-fg-muted">
           [ Independent MarTech Contracting ]
         </span>
-        <span className="font-mono text-xs uppercase tracking-widest text-fg-muted">
-          {"// Minimal systems, maximum signal"}
-        </span>
+        <Logo3D className="h-16 w-16 shrink-0 sm:h-20 sm:w-20 lg:h-24 lg:w-24" />
       </div>
 
       <h1 className="font-heading text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-tight text-fg">
