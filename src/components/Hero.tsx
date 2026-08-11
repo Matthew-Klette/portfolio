@@ -57,7 +57,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <Logo3D className="mx-auto h-48 w-48 shrink-0 sm:h-64 sm:w-64 lg:mx-0 lg:h-80 lg:w-80" />
+        <Logo3D className="mx-auto h-56 w-56 shrink-0 sm:h-72 sm:w-72 lg:mx-0 lg:h-96 lg:w-96" />
       </div>
     </section>
   );
