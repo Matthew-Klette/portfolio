@@ -4,36 +4,87 @@ import SectionEyebrow from "./SectionEyebrow";
 const CATEGORIES = [
   {
     index: "1",
-    title: "Analytics & Tracking",
+    title: "Google Tag Manager",
     items: [
-      "Google Tag Manager (client & server-side)",
-      "GA4",
-      "BigQuery",
-      "Meta Conversions API",
-      "Consent management platforms",
+      "Client-side & server-side GTM",
+      "Custom HTML tag authoring (ES5 + ES6+)",
+      "JSON container export / import workflows",
+      "Tag, trigger & variable template creation",
+      "Stape data client, Consent Mode v2, OneTrust",
     ],
   },
   {
     index: "2",
-    title: "Automation & Integration",
+    title: "Data & Analytics",
     items: [
-      "n8n",
-      "Workflow automation across BI, PM, and LLM-based systems",
-      "API integrations between disconnected tools",
+      "BigQuery — table design & complex SQL",
+      "GA4 event schema & full parameter ownership",
+      "Microsoft Clarity — session & heatmap analysis",
+      "Conversion tracking & multi-touch attribution",
+      "Looker Studio — BigQuery dashboards & reporting",
     ],
   },
   {
     index: "3",
-    title: "Development",
-    items: ["React", "JavaScript / TypeScript", "Python", "SQL"],
+    title: "AI & Automation",
+    items: [
+      "MCP server creation & deployment",
+      "Claude AI integration & prompt engineering",
+      "n8n complex workflow automation",
+      "API orchestration",
+    ],
   },
   {
     index: "4",
-    title: "Other",
+    title: "Languages",
     items: [
-      "Privacy & compliance remediation",
-      "Data pipeline debugging",
-      "Technical documentation",
+      "JavaScript — expert (ES5 + ES6+)",
+      "TypeScript — production use",
+      "Python — automation, scripting, tooling",
+      "SQL — complex queries & BigQuery",
+      "Kotlin — Android & React Native",
+    ],
+  },
+  {
+    index: "5",
+    title: "Frontend & Infrastructure",
+    items: [
+      "React, React Native, TypeScript",
+      "Tailwind CSS, responsive design",
+      "Strapi CMS — headless content modeling",
+      "Docker — containerised deployments",
+      "Tailscale VPN — mesh network remote dev",
+    ],
+  },
+  {
+    index: "6",
+    title: "MarTech Ecosystem",
+    items: [
+      "Klaviyo — email & event integration",
+      "Meta CAPI, Pixel & Business Suite",
+      "Criteo, Bazaarvoice, OneTrust",
+      "Consent Mode v2 initialization & templates",
+      "Stape — sGTM data client setup & routing",
+    ],
+  },
+  {
+    index: "7",
+    title: "Tooling & Workflow",
+    items: [
+      "Jira — sprint & issue tracking",
+      "Linear — project & ticket management",
+      "Notion — docs, SOPs & knowledge base",
+      "Git & GitHub — version control",
+    ],
+  },
+  {
+    index: "8",
+    title: "Databases & Backends",
+    items: [
+      "Firebase Realtime DB & Firestore",
+      "Supabase & PostgreSQL",
+      "SSMS — Microsoft SQL Server",
+      "REST API design & debugging (Postman)",
     ],
   },
 ];
@@ -47,12 +98,12 @@ export default function Skills() {
           The stack I use to keep tracking and automation systems honest.
         </h2>
       </Reveal>
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {CATEGORIES.map((cat, i) => (
-          <Reveal key={cat.title} delay={i * 80}>
-            <div className="flex h-full flex-col rounded-2xl border border-border p-8">
-              <div className="mb-6 flex items-baseline justify-between">
-                <h3 className="font-heading text-2xl tracking-tight text-fg">
+          <Reveal key={cat.title} delay={(i % 4) * 80}>
+            <div className="flex h-full flex-col rounded-2xl border border-border p-6">
+              <div className="mb-5 flex items-baseline justify-between">
+                <h3 className="font-heading text-xl tracking-tight text-fg">
                   {cat.title}
                 </h3>
                 <span className="font-mono text-xs text-fg-muted">
@@ -63,7 +114,7 @@ export default function Skills() {
                 {cat.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 font-mono text-sm text-fg-muted"
+                    className="flex items-start gap-3 font-mono text-xs leading-relaxed text-fg-muted"
                   >
                     <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-fg-muted" />
                     {item}

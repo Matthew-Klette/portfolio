@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="mt-10 flex flex-wrap items-center gap-6">
         <span className="inline-flex items-center rounded-full border border-border px-4 py-1.5 font-mono text-xs text-fg-muted">
-          since [YEAR]
+          since 2024
         </span>
         <p className="max-w-md font-mono text-sm leading-relaxed text-fg-muted">
           I build and repair the analytics and automation infrastructure

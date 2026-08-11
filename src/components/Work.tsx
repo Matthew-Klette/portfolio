@@ -6,31 +6,31 @@ const CASE_STUDIES = [
     tag: "Analytics Infrastructure",
     title: "Server-side tracking pipeline audit and remediation",
     problem:
-      "A [mid-size e-commerce brand] was losing attribution data due to an unaudited, drift-prone server-side GTM setup — conversion events firing inconsistently across ad platforms.",
+      "KÜHL's server-side GTM container had accumulated years of configuration debt as the sole engineer inherited full ownership — credential handling, consent enforcement, duplicate event firing, and drift between browser-side triggers and downstream platform APIs were all unaudited.",
     approach:
-      "Full audit of the sGTM container, tag firing logic, and consent-gated triggers. Rebuilt event mapping against source-of-truth schemas and added validation checks to catch drift before it reached ad platforms.",
+      "Ran a full architecture and security audit of the container, tracing root causes through multi-layer systems from client-side triggers through the server-side container to downstream APIs, then produced and personally implemented the majority of a prioritized remediation plan.",
     outcome:
-      "Recovered [METRIC]% of previously unattributed conversions and reduced discrepancy between platform-reported and BigQuery-reported revenue to under [METRIC]%.",
+      "Closed the credential-handling and duplicate-event gaps, restored consent enforcement across every server-side ad tag, and eliminated the biggest sources of configuration debt in the container.",
   },
   {
     tag: "Privacy & Compliance",
     title: "Consent management and privacy compliance overhaul",
     problem:
-      "Consent state wasn't reliably propagating from the CMP into tag firing logic, creating compliance exposure across [REGION] regulations.",
+      "A geolocation and regulatory template misconfiguration in KÜHL's OneTrust setup was affecting consent handling for over a million user sessions, and several server-side advertising tags were firing unconditionally regardless of consent state.",
     approach:
-      "Rebuilt the consent architecture around Consent Mode v2, mapped every tag to its legal basis, and added automated checks to catch future consent/tag mismatches before deploy.",
+      "Corrected the OneTrust template and geolocation logic, added missing vendor consent records for major ad platforms, and implemented consent gating across the server-side advertising tags that had been firing unconditionally.",
     outcome:
-      "Closed [METRIC] compliance gaps identified in the audit and eliminated manual consent QA from the release process.",
+      "Brought consent handling back into compliance across 1M+ affected sessions and now own ongoing consent QA across browsers and environments as new tracking ships.",
   },
   {
     tag: "Automation",
-    title: "Workflow automation connecting BI, PM, and AI systems",
+    title: "Workflow automation and internal tooling",
     problem:
-      "Reporting and task handoffs between analytics, project management, and stakeholder communication were manual, slow, and error-prone.",
+      "Content generation and data synchronization across internal tools depended on manual runs, with no protection against overlapping executions corrupting shared state.",
     approach:
-      "Built an n8n-based automation layer connecting BI outputs to PM tooling, with an LLM step for summarization and anomaly flagging before human review.",
+      "Built n8n workflow automations to orchestrate the pipelines end to end, adding concurrency and run-lock logic to prevent race conditions, then independently built a Python-based compliance scanning tool with its own API layer and automated reporting.",
     outcome:
-      "Cut manual reporting time by [METRIC]% and removed [METRIC] hours/week of copy-paste work across the team.",
+      "Removed manual intervention from the automated pipelines and gave the team a standing, self-reporting tool for ongoing privacy compliance monitoring.",
   },
   {
     tag: "Independent Project",
@@ -49,8 +49,7 @@ export default function Work() {
       <Reveal>
         <SectionEyebrow number="01" label="FEATURED WORK" />
         <h2 className="mb-14 max-w-2xl font-heading text-3xl leading-tight tracking-tight text-fg sm:text-4xl">
-          Case studies from recent engagements. Details generalized where NDA
-          applies.
+          Case studies from recent engagements.
         </h2>
       </Reveal>
       <div className="grid gap-6 sm:grid-cols-2">
