@@ -17,7 +17,7 @@ export default function Contact() {
       <Reveal>
         <div className="space-y-6">
           <a
-            href="mailto:mbkconsultinggroup@gmail.com"
+            href="mailto:mbkconsultinggroup@gmail.com?subject=Portfolio%20Inquiry"
             className="block font-heading text-4xl tracking-tight text-fg transition-colors hover:text-fg-muted sm:text-5xl"
           >
             mbkconsultinggroup@gmail.com
