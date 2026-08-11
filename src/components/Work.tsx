@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import SectionEyebrow from "./SectionEyebrow";
 
 const CASE_STUDIES = [
   {
@@ -34,8 +35,7 @@ const CASE_STUDIES = [
   {
     tag: "Independent Project",
     title: "[PROJECT NAME] — self-built automation tool",
-    problem:
-      "[Describe the gap or repetitive problem this project solves.]",
+    problem: "[Describe the gap or repetitive problem this project solves.]",
     approach:
       "[Describe the architecture and technical decisions — stack, integrations, tradeoffs.]",
     outcome:
@@ -47,40 +47,43 @@ export default function Work() {
   return (
     <section id="work" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-accent">
-          Featured Work
-        </p>
-        <h2 className="mb-14 max-w-2xl font-heading text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
-          Case studies from recent engagements. Details generalized where
-          NDA applies.
+        <SectionEyebrow number="01" label="FEATURED WORK" />
+        <h2 className="mb-14 max-w-2xl font-heading text-3xl leading-tight tracking-tight text-fg sm:text-4xl">
+          Case studies from recent engagements. Details generalized where NDA
+          applies.
         </h2>
       </Reveal>
       <div className="grid gap-6 sm:grid-cols-2">
         {CASE_STUDIES.map((cs, i) => (
           <Reveal key={cs.title} delay={i * 80}>
-            <article className="group h-full rounded-lg border border-border bg-bg-elevated p-8 transition-colors hover:border-accent/50">
-              <span className="mb-4 inline-block rounded-full border border-accent/30 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-accent">
-                {cs.tag}
-              </span>
-              <h3 className="mb-6 font-heading text-xl font-semibold leading-snug text-fg">
+            <article className="flex h-full flex-col rounded-2xl bg-off-white p-8 text-bg">
+              <div className="mb-6 flex items-start justify-between gap-4">
+                <span className="inline-block rounded-full border border-bg/20 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-bg/70">
+                  {cs.tag}
+                </span>
+                <span className="font-mono text-xs text-bg/50">
+                  /{i + 1}
+                </span>
+              </div>
+              <h3 className="mb-6 font-heading text-2xl leading-snug tracking-tight text-bg">
                 {cs.title}
               </h3>
-              <dl className="space-y-4 text-sm leading-relaxed text-fg-muted">
+              <dl className="space-y-4 font-mono text-sm leading-relaxed text-bg/70">
                 <div>
-                  <dt className="mb-1 font-mono text-[11px] uppercase tracking-widest text-fg">
-                    Problem
+                  <dt className="mb-1 font-mono text-[11px] uppercase tracking-widest text-bg">
+                    [Task]
                   </dt>
                   <dd>{cs.problem}</dd>
                 </div>
                 <div>
-                  <dt className="mb-1 font-mono text-[11px] uppercase tracking-widest text-fg">
-                    Approach
+                  <dt className="mb-1 font-mono text-[11px] uppercase tracking-widest text-bg">
+                    [Solution]
                   </dt>
                   <dd>{cs.approach}</dd>
                 </div>
                 <div>
-                  <dt className="mb-1 font-mono text-[11px] uppercase tracking-widest text-fg">
-                    Outcome
+                  <dt className="mb-1 font-mono text-[11px] uppercase tracking-widest text-bg">
+                    [Outcome]
                   </dt>
                   <dd>{cs.outcome}</dd>
                 </div>

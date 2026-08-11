@@ -1,8 +1,9 @@
 import Reveal from "./Reveal";
+import SectionEyebrow from "./SectionEyebrow";
 
 const CATEGORIES = [
   {
-    label: "01",
+    index: "1",
     title: "Analytics & Tracking",
     items: [
       "Google Tag Manager (client & server-side)",
@@ -13,7 +14,7 @@ const CATEGORIES = [
     ],
   },
   {
-    label: "02",
+    index: "2",
     title: "Automation & Integration",
     items: [
       "n8n",
@@ -22,12 +23,12 @@ const CATEGORIES = [
     ],
   },
   {
-    label: "03",
+    index: "3",
     title: "Development",
     items: ["React", "JavaScript / TypeScript", "Python", "SQL"],
   },
   {
-    label: "04",
+    index: "4",
     title: "Other",
     items: [
       "Privacy & compliance remediation",
@@ -41,32 +42,30 @@ export default function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-accent">
-          Skills
-        </p>
-        <h2 className="mb-14 max-w-2xl font-heading text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+        <SectionEyebrow number="02" label="SKILLS" />
+        <h2 className="mb-14 max-w-2xl font-heading text-3xl leading-tight tracking-tight text-fg sm:text-4xl">
           The stack I use to keep tracking and automation systems honest.
         </h2>
       </Reveal>
-      <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2">
         {CATEGORIES.map((cat, i) => (
           <Reveal key={cat.title} delay={i * 80}>
-            <div className="h-full bg-bg-elevated p-8">
+            <div className="flex h-full flex-col rounded-2xl border border-border p-8">
               <div className="mb-6 flex items-baseline justify-between">
-                <h3 className="font-heading text-lg font-semibold text-fg">
+                <h3 className="font-heading text-2xl tracking-tight text-fg">
                   {cat.title}
                 </h3>
                 <span className="font-mono text-xs text-fg-muted">
-                  {cat.label}
+                  /{cat.index}
                 </span>
               </div>
               <ul className="space-y-3">
                 {cat.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 text-sm text-fg-muted"
+                    className="flex items-start gap-3 font-mono text-sm text-fg-muted"
                   >
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-fg-muted" />
                     {item}
                   </li>
                 ))}

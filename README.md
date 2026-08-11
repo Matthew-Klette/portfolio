@@ -1,7 +1,7 @@
 # Portfolio
 
 Personal portfolio site. Next.js (App Router), static export, Tailwind CSS.
-Dark theme, accent `#FF6B2B`, Space Grotesk + Space Mono via `next/font/google`.
+Monochrome dark theme (black/white/gray), Bebas Neue + JetBrains Mono via `next/font/google`.
 
 Live: [add your Vercel URL here once deployed]
 
@@ -9,7 +9,7 @@ Live: [add your Vercel URL here once deployed]
 
 - Next.js (App Router), exported as static HTML — no server runtime needed
 - Tailwind CSS v4
-- Fonts: Space Grotesk (headings), Space Mono (body) — loaded free from Google Fonts
+- Fonts: Bebas Neue (headings), JetBrains Mono (body/labels) — loaded free from Google Fonts
 - Deployed on Vercel's free tier
 
 ## Local development
@@ -36,7 +36,7 @@ All copy lives directly in the section components — there's no CMS or data fil
 | Email, LinkedIn, contact form | `src/components/Contact.tsx` |
 | Footer | `src/components/Footer.tsx` |
 | Site title/meta description | `src/app/layout.tsx` |
-| Colors, fonts | `src/app/globals.css` (`--accent`, `--bg`, `--fg` custom properties) |
+| Colors, fonts | `src/app/globals.css` (`--bg`, `--fg`, `--off-white`, `--border` custom properties) |
 
 Search the codebase for bracketed placeholders (`[YOUR NAME]`, `[METRIC]`, `[COMPANY]`, etc.) and replace them with real copy:
 
@@ -75,6 +75,6 @@ src/
   app/
     layout.tsx      # fonts, metadata, root shell
     page.tsx         # assembles all sections
-    globals.css       # theme tokens, dark background, accent color
+    globals.css       # theme tokens: monochrome palette, fonts
   components/         # one component per section
 ```

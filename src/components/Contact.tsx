@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
+import SectionEyebrow from "./SectionEyebrow";
 
 // To enable the form, replace FORMSPREE_ID below with your Formspree
 // endpoint id (see README.md). Until then the form falls back to a
@@ -13,13 +14,11 @@ export default function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-accent">
-          Contact
-        </p>
-        <h2 className="mb-6 max-w-2xl font-heading text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+        <SectionEyebrow number="06" label="CONTACT" />
+        <h2 className="mb-6 max-w-2xl font-heading text-3xl leading-tight tracking-tight text-fg sm:text-4xl">
           Have a tracking, automation, or data pipeline problem?
         </h2>
-        <p className="mb-12 max-w-xl text-base leading-relaxed text-fg-muted">
+        <p className="mb-12 max-w-xl font-mono text-sm leading-relaxed text-fg-muted">
           Reach out directly or send a message below. I typically respond
           within [TIMEFRAME].
         </p>
@@ -29,18 +28,18 @@ export default function Contact() {
         <Reveal>
           <div className="space-y-6">
             <a
-              href="mailto:your.email@example.com"
-              className="block font-heading text-2xl font-semibold text-fg transition-colors hover:text-accent"
+              href="mailto:matthewklette14@gmail.com"
+              className="block font-heading text-3xl tracking-tight text-fg transition-colors hover:text-fg-muted"
             >
-              your.email@example.com
+              matthewklette14@gmail.com
             </a>
             <a
               href="https://linkedin.com/in/[YOUR-LINKEDIN]"
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-sm uppercase tracking-widest text-fg-muted transition-colors hover:text-accent"
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-fg-muted transition-colors hover:text-fg"
             >
-              LinkedIn ↗
+              <span aria-hidden>↗</span> LinkedIn
             </a>
           </div>
         </Reveal>
@@ -64,7 +63,7 @@ export default function Contact() {
                   name="name"
                   type="text"
                   required
-                  className="w-full rounded border border-border bg-bg-elevated px-4 py-3 text-sm text-fg outline-none focus:border-accent"
+                  className="w-full rounded-lg border border-border bg-bg-elevated px-4 py-3 font-mono text-sm text-fg outline-none focus:border-fg"
                 />
               </div>
               <div>
@@ -79,7 +78,7 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded border border-border bg-bg-elevated px-4 py-3 text-sm text-fg outline-none focus:border-accent"
+                  className="w-full rounded-lg border border-border bg-bg-elevated px-4 py-3 font-mono text-sm text-fg outline-none focus:border-fg"
                 />
               </div>
               <div>
@@ -94,22 +93,22 @@ export default function Contact() {
                   name="message"
                   rows={5}
                   required
-                  className="w-full resize-none rounded border border-border bg-bg-elevated px-4 py-3 text-sm text-fg outline-none focus:border-accent"
+                  className="w-full resize-none rounded-lg border border-border bg-bg-elevated px-4 py-3 font-mono text-sm text-fg outline-none focus:border-fg"
                 />
               </div>
               <button
                 type="submit"
-                className="rounded bg-accent px-6 py-3 text-sm font-medium uppercase tracking-wide text-bg transition-transform hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 font-mono text-xs uppercase tracking-widest text-bg transition-colors hover:bg-off-white"
               >
-                Send Message
+                <span aria-hidden>↗</span> Send Message
               </button>
             </form>
           ) : (
-            <div className="rounded-lg border border-dashed border-border p-8 text-sm leading-relaxed text-fg-muted">
+            <div className="rounded-2xl border border-dashed border-border p-8 font-mono text-sm leading-relaxed text-fg-muted">
               Contact form is disabled — set{" "}
-              <code className="text-accent">FORMSPREE_ID</code> in{" "}
-              <code className="text-accent">src/components/Contact.tsx</code>{" "}
-              to enable it, or remove this block and use the email link
+              <code className="text-fg">FORMSPREE_ID</code> in{" "}
+              <code className="text-fg">src/components/Contact.tsx</code> to
+              enable it, or remove this block and use the email link
               directly.
             </div>
           )}

@@ -1,32 +1,36 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { Bebas_Neue, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas-neue",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400"],
 });
 
-const spaceMono = Space_Mono({
-  variable: "--font-space-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "[YOUR NAME] — MarTech Engineer",
+  title: "Matthew Klette — MarTech Engineer",
   description:
     "Independent MarTech Engineer specializing in analytics infrastructure, server-side tracking, and workflow automation.",
+  icons: {
+    icon: "/mark.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${spaceMono.variable} h-full scroll-smooth`}
+      className={`${bebasNeue.variable} ${jetbrainsMono.variable} h-full scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-bg text-fg antialiased selection:bg-accent selection:text-bg">
+      <body className="min-h-full flex flex-col bg-bg text-fg antialiased selection:bg-fg selection:text-bg">
         {children}
       </body>
     </html>

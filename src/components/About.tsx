@@ -1,23 +1,24 @@
 import Reveal from "./Reveal";
+import SectionEyebrow from "./SectionEyebrow";
 
 export default function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-accent">
-          About
-        </p>
+        <SectionEyebrow number="03" label="ABOUT" />
       </Reveal>
       <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
         <Reveal>
-          <h2 className="font-heading text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
-            Independent, remote,
+          <h2 className="font-heading text-4xl leading-[0.95] tracking-tight text-fg sm:text-5xl">
+            Independent,
             <br />
-            built for outcomes.
+            remote, built
+            <br />
+            for outcomes.
           </h2>
         </Reveal>
         <Reveal delay={100}>
-          <div className="space-y-5 text-base leading-relaxed text-fg-muted">
+          <div className="space-y-5 font-mono text-sm leading-relaxed text-fg-muted">
             <p>
               I&apos;m an independent MarTech Engineer working remotely from
               South Africa. I design, build, and repair the systems that sit

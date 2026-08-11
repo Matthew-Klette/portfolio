@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import SectionEyebrow from "./SectionEyebrow";
 
 const TIMELINE = [
   {
@@ -34,25 +35,20 @@ export default function Experience() {
       <div className="grid gap-16 lg:grid-cols-2">
         <div>
           <Reveal>
-            <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-accent">
-              Experience
-            </p>
-            <h2 className="mb-10 font-heading text-3xl font-semibold tracking-tight text-fg">
-              Scope of ownership.
-            </h2>
+            <SectionEyebrow number="04" label="EXPERIENCE" />
           </Reveal>
           <ol className="space-y-10 border-l border-border pl-8">
             {TIMELINE.map((item, i) => (
               <Reveal key={item.title} delay={i * 80}>
                 <li className="relative">
-                  <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-accent" />
+                  <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-fg" />
                   <p className="mb-1 font-mono text-xs uppercase tracking-widest text-fg-muted">
                     {item.period}
                   </p>
-                  <h3 className="mb-2 font-heading text-lg font-semibold text-fg">
+                  <h3 className="mb-2 font-heading text-xl tracking-tight text-fg">
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-fg-muted">
+                  <p className="font-mono text-sm leading-relaxed text-fg-muted">
                     {item.description}
                   </p>
                 </li>
@@ -63,25 +59,20 @@ export default function Experience() {
 
         <div id="education">
           <Reveal>
-            <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-accent">
-              Education
-            </p>
-            <h2 className="mb-10 font-heading text-3xl font-semibold tracking-tight text-fg">
-              Formal grounding.
-            </h2>
+            <SectionEyebrow number="05" label="EDUCATION" />
           </Reveal>
           <ol className="space-y-10 border-l border-border pl-8">
             {EDUCATION.map((item, i) => (
               <Reveal key={item.title} delay={i * 80}>
                 <li className="relative">
-                  <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-accent" />
+                  <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-fg" />
                   <p className="mb-1 font-mono text-xs uppercase tracking-widest text-fg-muted">
                     {item.period}
                   </p>
-                  <h3 className="mb-2 font-heading text-lg font-semibold text-fg">
+                  <h3 className="mb-2 font-heading text-xl tracking-tight text-fg">
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-fg-muted">
+                  <p className="font-mono text-sm leading-relaxed text-fg-muted">
                     {item.description}
                   </p>
                 </li>

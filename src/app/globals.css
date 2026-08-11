@@ -1,13 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0b;
-  --bg-elevated: #131315;
-  --fg: #e8e6e3;
-  --fg-muted: #8a8983;
-  --border: #232326;
-  --accent: #ff6b2b;
-  --accent-dim: #ff6b2b1a;
+  --bg: #0d0d0c;
+  --bg-elevated: #161615;
+  --fg: #f5f2ef;
+  --fg-muted: #8a8a86;
+  --border: #2a2a28;
+  --off-white: #fcf7f7;
 }
 
 @theme inline {
@@ -16,16 +15,15 @@
   --color-fg: var(--fg);
   --color-fg-muted: var(--fg-muted);
   --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-dim: var(--accent-dim);
-  --font-heading: var(--font-space-grotesk);
-  --font-mono: var(--font-space-mono);
+  --color-off-white: var(--off-white);
+  --font-heading: var(--font-bebas-neue);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-space-mono), monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
 }
 
 h1,
@@ -34,11 +32,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-bebas-neue), sans-serif;
+  letter-spacing: 0.01em;
 }
 
 ::selection {
-  background: var(--accent);
+  background: var(--fg);
   color: var(--bg);
 }
 
