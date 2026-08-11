@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Personal portfolio site. Next.js (App Router), static export, Tailwind CSS.
+Dark theme, accent `#FF6B2B`, Space Grotesk + Space Mono via `next/font/google`.
 
-First, run the development server:
+Live: [add your Vercel URL here once deployed]
+
+## Stack
+
+- Next.js (App Router), exported as static HTML — no server runtime needed
+- Tailwind CSS v4
+- Fonts: Space Grotesk (headings), Space Mono (body) — loaded free from Google Fonts
+- Deployed on Vercel's free tier
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All copy lives directly in the section components — there's no CMS or data file layer, so edit-and-redeploy is just edit-and-commit.
 
-## Learn More
+| Section | File |
+|---|---|
+| Name, nav links | `src/components/Nav.tsx` |
+| Hero headline, CTAs | `src/components/Hero.tsx` |
+| Bio | `src/components/About.tsx` |
+| Skill categories | `src/components/Skills.tsx` |
+| Case studies | `src/components/Work.tsx` |
+| Experience timeline, education | `src/components/Experience.tsx` |
+| Email, LinkedIn, contact form | `src/components/Contact.tsx` |
+| Footer | `src/components/Footer.tsx` |
+| Site title/meta description | `src/app/layout.tsx` |
+| Colors, fonts | `src/app/globals.css` (`--accent`, `--bg`, `--fg` custom properties) |
 
-To learn more about Next.js, take a look at the following resources:
+Search the codebase for bracketed placeholders (`[YOUR NAME]`, `[METRIC]`, `[COMPANY]`, etc.) and replace them with real copy:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+grep -rn "\[" src/components
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Resume
 
-## Deploy on Vercel
+Drop your resume PDF at `public/resume.pdf` — the Hero "Download Resume" button already links to `/resume.pdf`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Contact form (optional)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The contact form is disabled by default and falls back to a plain mailto link. To enable it:
+
+1. Create a free form at [formspree.io](https://formspree.io) and copy your form ID.
+2. Set `FORMSPREE_ID` in `src/components/Contact.tsx`.
+3. Update the `mailto:` and LinkedIn links in the same file.
+
+## Deploying
+
+This repo is connected to Vercel and redeploys automatically on every push to `main`. To ship a change:
+
+```bash
+git add -A
+git commit -m "update copy"
+git push
+```
+
+Vercel picks up the push, builds, and updates the live URL within a minute or two — no manual deploy step. Pushes to other branches or PRs get their own preview URLs automatically.
+
+## Project structure
+
+```
+src/
+  app/
+    layout.tsx      # fonts, metadata, root shell
+    page.tsx         # assembles all sections
+    globals.css       # theme tokens, dark background, accent color
+  components/         # one component per section
+```
