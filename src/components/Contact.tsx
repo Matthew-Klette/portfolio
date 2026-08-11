@@ -17,10 +17,10 @@ export default function Contact() {
       <Reveal>
         <div className="space-y-6">
           <a
-            href="mailto:matthewklette14@gmail.com"
+            href="mailto:mbkconsultinggroup@gmail.com"
             className="block font-heading text-4xl tracking-tight text-fg transition-colors hover:text-fg-muted sm:text-5xl"
           >
-            matthewklette14@gmail.com
+            mbkconsultinggroup@gmail.com
           </a>
           <a
             href="https://www.linkedin.com/in/matthew-klette-416a51320/"
