@@ -6,7 +6,7 @@ export default function Hero() {
       id="top"
       className="relative mx-auto flex min-h-[90vh] max-w-6xl flex-col justify-center px-6 py-24"
     >
-      <div className="flex flex-col-reverse gap-10 lg:flex-row lg:items-center lg:gap-16">
+      <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
         <div className="flex-1">
           <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
             <span className="font-mono text-xs uppercase tracking-widest text-fg-muted">
