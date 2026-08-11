@@ -1,12 +1,51 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import Reveal from "./Reveal";
 import SectionEyebrow from "./SectionEyebrow";
 
 const FORMSPREE_ID = "mljrbbpg";
+const MAX_SUBMISSIONS_PER_SESSION = 2;
+const SESSION_KEY = "contact-submissions";
+
+type Status = "idle" | "submitting" | "success" | "error";
 
 export default function Contact() {
   const formEnabled = FORMSPREE_ID.length > 0;
+  const [submitCount, setSubmitCount] = useState(() => {
+    if (typeof window === "undefined") return 0;
+    const stored = Number(sessionStorage.getItem(SESSION_KEY) ?? "0");
+    return Number.isFinite(stored) ? stored : 0;
+  });
+  const [status, setStatus] = useState<Status>("idle");
+
+  const limitReached = submitCount >= MAX_SUBMISSIONS_PER_SESSION;
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (limitReached || status === "submitting") return;
+
+    const form = e.currentTarget;
+    setStatus("submitting");
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!res.ok) throw new Error("submission failed");
+
+      const next = submitCount + 1;
+      sessionStorage.setItem(SESSION_KEY, String(next));
+      setSubmitCount(next);
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-24">
@@ -42,12 +81,27 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={100}>
-          {formEnabled ? (
-            <form
-              action={`https://formspree.io/f/${FORMSPREE_ID}`}
-              method="POST"
-              className="space-y-5"
-            >
+          {!formEnabled ? (
+            <div className="rounded-2xl border border-dashed border-border p-8 font-mono text-sm leading-relaxed text-fg-muted">
+              Contact form is disabled — set{" "}
+              <code className="text-fg">FORMSPREE_ID</code> in{" "}
+              <code className="text-fg">src/components/Contact.tsx</code> to
+              enable it (see README.md), or use the email link directly.
+            </div>
+          ) : limitReached ? (
+            <div className="rounded-2xl border border-dashed border-border p-8 font-mono text-sm leading-relaxed text-fg-muted">
+              You&apos;ve sent {MAX_SUBMISSIONS_PER_SESSION} messages this
+              session — for anything further, email me directly at{" "}
+              <a
+                href="mailto:matthewklette14@gmail.com"
+                className="text-fg underline underline-offset-2"
+              >
+                matthewklette14@gmail.com
+              </a>
+              .
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label
                   htmlFor="name"
@@ -112,20 +166,33 @@ export default function Contact() {
                   autoComplete="off"
                 />
               </div>
-              <button
-                type="submit"
-                className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 font-mono text-xs uppercase tracking-widest text-bg transition-colors hover:bg-off-white"
-              >
-                <span aria-hidden>↗</span> Send Message
-              </button>
+
+              <div className="flex items-center gap-4">
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 font-mono text-xs uppercase tracking-widest text-bg transition-colors hover:bg-off-white disabled:opacity-50"
+                >
+                  <span aria-hidden>↗</span>{" "}
+                  {status === "submitting" ? "Sending…" : "Send Message"}
+                </button>
+                {status === "success" && (
+                  <span className="font-mono text-xs text-fg-muted">
+                    Sent — thanks.{" "}
+                    {MAX_SUBMISSIONS_PER_SESSION - submitCount} message
+                    {MAX_SUBMISSIONS_PER_SESSION - submitCount === 1
+                      ? ""
+                      : "s"}{" "}
+                    left this session.
+                  </span>
+                )}
+                {status === "error" && (
+                  <span className="font-mono text-xs text-fg-muted">
+                    Something went wrong — try the email link instead.
+                  </span>
+                )}
+              </div>
             </form>
-          ) : (
-            <div className="rounded-2xl border border-dashed border-border p-8 font-mono text-sm leading-relaxed text-fg-muted">
-              Contact form is disabled — set{" "}
-              <code className="text-fg">FORMSPREE_ID</code> in{" "}
-              <code className="text-fg">src/components/Contact.tsx</code> to
-              enable it (see README.md), or use the email link directly.
-            </div>
           )}
         </Reveal>
       </div>
