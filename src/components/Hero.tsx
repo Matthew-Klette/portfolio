@@ -30,7 +30,7 @@ export default function Hero() {
               since 2024
             </span>
             <p className="max-w-md font-mono text-sm leading-relaxed text-fg-muted">
-              Build, repair, maintain — the analytics and automation
+              I architect, repair, and maintain the analytics and automation
               infrastructure entire teams depend on.
             </p>
           </div>
