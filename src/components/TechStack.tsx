@@ -19,13 +19,23 @@ const TOOLS = [
   { name: "Clarity", detail: "MS Clarity", sub: "Session Data" },
 ];
 
-function Track({ ariaHidden }: { ariaHidden?: boolean }) {
+const MID = Math.ceil(TOOLS.length / 2);
+const ROW_ONE = TOOLS.slice(0, MID);
+const ROW_TWO = TOOLS.slice(MID);
+
+function Track({
+  tools,
+  ariaHidden,
+}: {
+  tools: typeof TOOLS;
+  ariaHidden?: boolean;
+}) {
   return (
     <div
       className="flex shrink-0 items-center gap-4 pr-4"
       aria-hidden={ariaHidden}
     >
-      {TOOLS.map((tool) => (
+      {tools.map((tool) => (
         <div
           key={tool.name}
           className="flex w-40 shrink-0 flex-col justify-center rounded-lg border border-border px-4 py-4"
@@ -53,8 +63,14 @@ export default function TechStack() {
       </p>
       <div className="marquee-mask overflow-hidden">
         <div className="flex w-max animate-marquee motion-reduce:animate-none">
-          <Track />
-          <Track ariaHidden />
+          <Track tools={ROW_ONE} />
+          <Track tools={ROW_ONE} ariaHidden />
+        </div>
+      </div>
+      <div className="marquee-mask mt-4 overflow-hidden">
+        <div className="flex w-max animate-marquee-reverse motion-reduce:animate-none">
+          <Track tools={ROW_TWO} />
+          <Track tools={ROW_TWO} ariaHidden />
         </div>
       </div>
     </section>
