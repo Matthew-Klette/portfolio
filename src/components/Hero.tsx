@@ -15,6 +15,9 @@ export default function Hero() {
             <span className="font-mono text-xs uppercase tracking-widest text-fg-muted">
               [ Independent MarTech Contracting ]
             </span>
+            <span className="inline-flex items-center rounded-full border border-border px-4 py-1.5 font-mono text-xs text-fg-muted">
+              since 2024
+            </span>
           </div>
 
           <h1 className="font-heading text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-tight text-fg">
@@ -26,9 +29,6 @@ export default function Hero() {
           </h1>
 
           <div className="mt-10 flex flex-wrap items-center gap-6">
-            <span className="inline-flex items-center rounded-full border border-border px-4 py-1.5 font-mono text-xs text-fg-muted">
-              since 2024
-            </span>
             <p className="max-w-md font-mono text-sm leading-relaxed text-fg-muted">
               I architect, repair, and maintain the analytics and automation
               infrastructure entire teams depend on.
