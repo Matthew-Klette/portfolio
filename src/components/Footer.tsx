@@ -11,7 +11,7 @@ export default function Footer() {
         </Reveal>
         <div className="mt-10 flex flex-col items-center gap-4">
           <a
-            href="#contact"
+            href="mailto:mbkconsultinggroup@gmail.com?subject=Portfolio%20Inquiry"
             className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 font-mono text-xs uppercase tracking-widest text-bg transition-colors hover:bg-off-white"
           >
             <span aria-hidden>↗</span> I&apos;m available for new projects
