@@ -30,6 +30,7 @@ const CATEGORIES = [
     items: [
       "MCP server creation & deployment",
       "Claude AI integration & prompt engineering",
+      "Claude Code — agentic development workflows",
       "n8n complex workflow automation",
       "API orchestration",
     ],
@@ -54,6 +55,7 @@ const CATEGORIES = [
       "Strapi CMS — headless content modeling",
       "Docker — containerised deployments",
       "Tailscale VPN — mesh network remote dev",
+      "Microsoft Azure — cloud infrastructure",
     ],
   },
   {
@@ -62,6 +64,7 @@ const CATEGORIES = [
     items: [
       "Klaviyo — email & event integration",
       "Meta CAPI, Pixel & Business Suite",
+      "Google Ads — campaigns & conversion tracking",
       "Criteo, Bazaarvoice, OneTrust",
       "Consent Mode v2 initialization & templates",
       "Stape — sGTM data client setup & routing",
@@ -74,6 +77,7 @@ const CATEGORIES = [
       "Jira — sprint & issue tracking",
       "Linear — project & ticket management",
       "Notion — docs, SOPs & knowledge base",
+      "Obsidian — personal knowledge base",
       "Git & GitHub — version control",
     ],
   },

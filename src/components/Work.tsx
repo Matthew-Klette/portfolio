@@ -33,14 +33,21 @@ const CASE_STUDIES = [
       "Removed manual intervention from the automated pipelines and gave the team a standing, self-reporting tool for ongoing privacy compliance monitoring.",
   },
   {
-    tag: "Independent Project",
-    title: "AI-orchestrated workflow automation",
+    tag: "Personal Project",
+    title: "Utah Mountain Lion Conservation — Legislator Guide",
     problem:
-      "Manually maintained cross-system workflows — syncing data between a BI warehouse, a knowledge/PM tool, and team communication — broke in predictable but disruptive ways: duplicate-record loops when a sync re-ran, approval steps that silently stalled with no escalation, and race conditions when two triggers fired on the same record within seconds of each other.",
+      "Utah residents supporting a public wildlife conservation campaign had no simple way to find out who their state representatives were or how to contact them about wildlife management legislation.",
     approach:
-      "Built a personal automation toolkit in n8n that orchestrates BigQuery, Notion, and team messaging into a single pipeline, with an LLM step (Anthropic API) handling summarization and routing decisions mid-flow. Added idempotency keys to kill duplicate-record loops, timeout-based escalation so stuck approvals surface instead of stalling silently, and locking logic so concurrent triggers can't corrupt the same record.",
+      "Built a legislator lookup and advocacy tool for the Utah Mountain Lion Conservation campaign — a personal project done as a favor for a contact. Implemented address-to-district resolution using the Geocodio API, with a mobile-optimized embed built using Wix Velo page code, plus supporting HTML/CSS/JS for the interactive lookup widget and script cards. Stack: Wix Studio, Velo (JavaScript), Geocodio API, HTML/CSS/JS.",
     outcome:
-      "A reusable automation pattern — not a one-off script — that now underpins how I connect BI, PM, and AI systems on client work, with the failure modes that used to require manual babysitting handled automatically.",
+      "Live on the campaign site, helping residents find and directly contact their representatives about the legislation.",
+    links: [
+      { label: "Protect", href: "https://www.utahmountainlion.org/protect" },
+      {
+        label: "Postcard Campaign",
+        href: "https://www.utahmountainlion.org/postcard",
+      },
+    ],
   },
 ];
 
@@ -88,6 +95,21 @@ export default function Work() {
                   <dd>{cs.outcome}</dd>
                 </div>
               </dl>
+              {"links" in cs && cs.links && (
+                <div className="mt-6 flex flex-wrap gap-4">
+                  {cs.links.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-bg transition-colors hover:text-bg/60"
+                    >
+                      <span aria-hidden>↗</span> {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
             </article>
           </Reveal>
         ))}
