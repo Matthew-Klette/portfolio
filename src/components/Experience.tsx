@@ -48,7 +48,7 @@ export default function Experience() {
       </Reveal>
 
       <Reveal>
-        <div className="mb-14 flex flex-col gap-4 border-b border-border pb-10 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-14 flex flex-col gap-4 border-b border-border pb-10 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="mb-2 font-mono text-xs uppercase tracking-widest text-fg-muted">
               Dec 2024 — Present · Remote
