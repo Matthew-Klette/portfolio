@@ -6,21 +6,21 @@ const CASE_STUDIES = [
     tag: "Analytics Infrastructure",
     title: "Server-side tracking pipeline audit and remediation",
     problem:
-      "A DTC outdoor apparel brand's server-side GTM container had accumulated years of configuration debt as the sole engineer inherited full ownership — credential handling, consent enforcement, duplicate event firing, and drift between browser-side triggers and downstream platform APIs were all unaudited.",
+      "KUHL's server-side GTM container had accumulated configuration debt as the sole engineer inherited full ownership — tag hygiene, consent enforcement, duplicate event firing, and drift between browser-side triggers and downstream platform APIs all needed review.",
     approach:
-      "Ran a full architecture and security audit of the container, tracing root causes through multi-layer systems from client-side triggers through the server-side container to downstream APIs, then produced and personally implemented the majority of a prioritized remediation plan.",
+      "Ran an architecture review of the container, tracing issues through multi-layer systems from client-side triggers through the server-side container to downstream APIs, then produced and personally implemented the majority of a prioritized remediation plan.",
     outcome:
-      "Closed the credential-handling and duplicate-event gaps, restored consent enforcement across every server-side ad tag, and eliminated the biggest sources of configuration debt in the container.",
+      "Closed the duplicate-event gaps, restored consent enforcement across server-side ad tags, and cleaned up the biggest sources of configuration debt in the container.",
   },
   {
     tag: "Privacy & Compliance",
     title: "Consent management and privacy compliance overhaul",
     problem:
-      "A geolocation and regulatory template misconfiguration in a DTC outdoor apparel brand's OneTrust setup was affecting consent handling for over a million user sessions, and several server-side advertising tags were firing unconditionally regardless of consent state.",
+      "A geolocation and regulatory template misconfiguration in KUHL's OneTrust setup was affecting consent handling for a large share of user sessions, and some server-side advertising tags were firing without proper consent gating.",
     approach:
-      "Corrected the OneTrust template and geolocation logic, added missing vendor consent records for major ad platforms, and implemented consent gating across the server-side advertising tags that had been firing unconditionally.",
+      "Corrected the OneTrust template and geolocation logic, added missing vendor consent records for major ad platforms, and implemented consent gating across the server-side advertising tags that needed it.",
     outcome:
-      "Brought consent handling back into compliance across 1M+ affected sessions and now own ongoing consent QA across browsers and environments as new tracking ships.",
+      "Brought consent handling back into compliance across affected sessions and now own ongoing consent QA across browsers and environments as new tracking ships.",
   },
   {
     tag: "Automation",

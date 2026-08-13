@@ -6,7 +6,7 @@ const SCOPE = [
     index: "1",
     title: "Tag Management & Server-Side Tracking",
     description:
-      "Own both client-side and server-side GTM end to end. Build and debug custom JavaScript templates, triggers, and variables capturing ecommerce events across the full customer journey. Ran a full architecture and security audit of the server-side container and implemented the majority of the resulting remediation myself.",
+      "Own both client-side and server-side GTM end to end. Build and debug custom JavaScript templates, triggers, and variables capturing ecommerce events across the full customer journey. Ran an architecture review of the server-side container and implemented the majority of the resulting improvements myself.",
   },
   {
     index: "2",
@@ -18,7 +18,7 @@ const SCOPE = [
     index: "3",
     title: "Privacy & Consent Management",
     description:
-      "Led a consent management remediation covering OneTrust — correcting a geolocation and regulatory template misconfiguration affecting over a million user sessions, adding missing vendor consent records for major ad platforms, and gating server-side advertising tags that previously fired unconditionally.",
+      "Led a consent management remediation covering OneTrust — correcting a geolocation and regulatory template misconfiguration affecting a large share of user sessions, adding missing vendor consent records for major ad platforms, and gating server-side advertising tags that needed proper consent enforcement.",
   },
   {
     index: "4",
