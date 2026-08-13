@@ -38,6 +38,18 @@ const SCOPE = [
     description:
       "Design and maintain n8n workflow automations orchestrating content generation and data synchronization, including concurrency and run-lock logic to prevent race conditions. Independently built a Python-based compliance scanning tool with an API layer and automated reporting.",
   },
+  {
+    index: "7",
+    title: "Data Integrity & QA",
+    description:
+      "Sole point of ownership for the analytics and tracking stack, managing the full lifecycle from requirements through implementation to QA. Diagnose and resolve discrepancies between client-side and server-side event counts, and build custom server-side tagging templates to extend GTM's native capabilities for platform-specific event handling.",
+  },
+  {
+    index: "8",
+    title: "Stakeholder Coordination & Documentation",
+    description:
+      "Coordinate directly with stakeholders to translate business reporting needs into tracking specifications and dashboard requirements. Document tracking architecture and data flow to support long-term maintainability of the analytics infrastructure.",
+  },
 ];
 
 export default function Experience() {
