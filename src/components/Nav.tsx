@@ -50,12 +50,12 @@ export default function Nav() {
             className="flex flex-col gap-1.5 lg:hidden"
           >
             <span
-              className={`h-px w-6 bg-fg-muted transition-transform ${
+              className={`h-px w-6 bg-fg-muted transition-transform duration-300 ease-out ${
                 open ? "translate-y-[3.5px] rotate-45" : ""
               }`}
             />
             <span
-              className={`h-px w-6 bg-fg-muted transition-transform ${
+              className={`h-px w-6 bg-fg-muted transition-transform duration-300 ease-out ${
                 open ? "-translate-y-[3.5px] -rotate-45" : ""
               }`}
             />
@@ -63,24 +63,38 @@ export default function Nav() {
         </div>
       </nav>
 
-      {open && (
-        <ul
-          id="mobile-nav"
-          className="flex flex-col gap-1 border-t border-border px-6 py-4 font-mono text-xs uppercase tracking-widest text-fg-muted lg:hidden"
-        >
-          {LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="block py-2 transition-colors hover:text-fg"
+      <div
+        className={`grid transition-[grid-template-rows] duration-300 ease-out lg:hidden ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <ul
+            id="mobile-nav"
+            className="flex flex-col gap-1 border-t border-border px-6 py-4 font-mono text-xs uppercase tracking-widest text-fg-muted"
+          >
+            {LINKS.map((link, i) => (
+              <li
+                key={link.href}
+                className={`transition-all duration-300 ease-out ${
+                  open
+                    ? "translate-y-0 opacity-100"
+                    : "-translate-y-1 opacity-0"
+                }`}
+                style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
               >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
+                <a
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block py-2 transition-colors hover:text-fg"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </header>
   );
 }
