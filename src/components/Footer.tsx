@@ -18,9 +18,8 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-border px-6 py-8 font-mono text-xs text-fg-muted sm:flex-row">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-4 border-t border-border px-6 py-8 font-mono text-xs text-fg-muted sm:flex-row">
         <p>© {new Date().getFullYear()} Matthew Klette. All rights reserved.</p>
-        <p className="uppercase tracking-widest">Built with Next.js</p>
       </div>
     </footer>
   );

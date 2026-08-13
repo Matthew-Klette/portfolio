@@ -6,14 +6,14 @@ export default function Hero() {
       id="top"
       className="relative mx-auto flex max-w-6xl flex-col px-6 pb-24 pt-12 sm:pt-16"
     >
+      <span className="absolute right-6 top-12 hidden font-mono text-xs uppercase tracking-widest text-fg-muted sm:top-16 lg:inline-block">
+        {"// Minimal systems, maximum signal"}
+      </span>
       <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
         <div className="flex-1">
-          <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <div className="mb-6 flex flex-wrap items-center gap-4">
             <span className="font-mono text-xs uppercase tracking-widest text-fg-muted">
               [ Independent MarTech Contracting ]
-            </span>
-            <span className="font-mono text-xs uppercase tracking-widest text-fg-muted">
-              {"// Minimal systems, maximum signal"}
             </span>
           </div>
 
@@ -30,8 +30,8 @@ export default function Hero() {
               since 2024
             </span>
             <p className="max-w-md font-mono text-sm leading-relaxed text-fg-muted">
-              I build and repair the analytics and automation infrastructure
-              marketing and product teams depend on.
+              Build, repair, maintain — the analytics and automation
+              infrastructure entire teams depend on.
             </p>
           </div>
 

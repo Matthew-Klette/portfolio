@@ -57,7 +57,7 @@ export default function Experience() {
               MarTech &amp; Analytics Engineer
             </h3>
             <p className="mt-1 font-mono text-sm text-fg-muted">
-              Independent Contractor — KÜHL
+              Independent Contractor — National Outdoor Apparel Brand
             </p>
           </div>
           <p className="max-w-sm font-mono text-sm leading-relaxed text-fg-muted">

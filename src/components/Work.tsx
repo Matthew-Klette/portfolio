@@ -6,7 +6,7 @@ const CASE_STUDIES = [
     tag: "Analytics Infrastructure",
     title: "Server-side tracking pipeline audit and remediation",
     problem:
-      "KÜHL's server-side GTM container had accumulated years of configuration debt as the sole engineer inherited full ownership — credential handling, consent enforcement, duplicate event firing, and drift between browser-side triggers and downstream platform APIs were all unaudited.",
+      "A DTC outdoor apparel brand's server-side GTM container had accumulated years of configuration debt as the sole engineer inherited full ownership — credential handling, consent enforcement, duplicate event firing, and drift between browser-side triggers and downstream platform APIs were all unaudited.",
     approach:
       "Ran a full architecture and security audit of the container, tracing root causes through multi-layer systems from client-side triggers through the server-side container to downstream APIs, then produced and personally implemented the majority of a prioritized remediation plan.",
     outcome:
@@ -16,7 +16,7 @@ const CASE_STUDIES = [
     tag: "Privacy & Compliance",
     title: "Consent management and privacy compliance overhaul",
     problem:
-      "A geolocation and regulatory template misconfiguration in KÜHL's OneTrust setup was affecting consent handling for over a million user sessions, and several server-side advertising tags were firing unconditionally regardless of consent state.",
+      "A geolocation and regulatory template misconfiguration in a DTC outdoor apparel brand's OneTrust setup was affecting consent handling for over a million user sessions, and several server-side advertising tags were firing unconditionally regardless of consent state.",
     approach:
       "Corrected the OneTrust template and geolocation logic, added missing vendor consent records for major ad platforms, and implemented consent gating across the server-side advertising tags that had been firing unconditionally.",
     outcome:
