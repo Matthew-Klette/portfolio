@@ -48,7 +48,7 @@ export default function Experience() {
       </Reveal>
 
       <Reveal>
-        <div className="mb-14 flex flex-col gap-4 border-b border-border pb-10 sm:flex-row sm:items-start sm:justify-between">
+        <div className="mb-14 grid gap-12 border-b border-border pb-10 lg:grid-cols-[1fr_2fr]">
           <div>
             <p className="mb-2 font-mono text-xs uppercase tracking-widest text-fg-muted">
               Dec 2024 — Present · Remote
@@ -57,14 +57,14 @@ export default function Experience() {
               MarTech &amp; Analytics Engineer
             </h3>
             <p className="mt-1 font-mono text-sm text-fg-muted">
-              Independent Contractor — National Outdoor Apparel Brand
+              Independent Contractor — KUHL
             </p>
           </div>
           <p className="max-w-sm font-mono text-sm leading-relaxed text-fg-muted">
             Sole engineer owning the full analytics, tracking, and MarTech
-            stack for a national outdoor apparel brand&apos;s ecommerce
-            platform — from client-side capture through server-side
-            processing to warehouse storage and downstream activation.
+            stack for KUHL&apos;s ecommerce platform — from client-side
+            capture through server-side processing to warehouse storage and
+            downstream activation.
           </p>
         </div>
       </Reveal>
