@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 const LINKS = [
@@ -9,10 +12,16 @@ const LINKS = [
 ];
 
 export default function Nav() {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/90 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a href="#top" className="flex items-center gap-3 font-mono text-sm text-fg">
+        <a
+          href="#top"
+          onClick={() => setOpen(false)}
+          className="flex items-center gap-3 font-mono text-sm text-fg"
+        >
           <Image src="/mark.png" alt="Matthew Klette" width={28} height={28} />
           [ <span className="font-medium">MATTHEW.KLETTE</span> ]
         </a>
@@ -32,12 +41,46 @@ export default function Nav() {
           >
             <span aria-hidden>↗</span> Get in touch
           </a>
-          <div className="flex flex-col gap-1.5" aria-hidden>
-            <span className="h-px w-6 bg-fg-muted" />
-            <span className="h-px w-6 bg-fg-muted" />
-          </div>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="flex flex-col gap-1.5 lg:hidden"
+          >
+            <span
+              className={`h-px w-6 bg-fg-muted transition-transform ${
+                open ? "translate-y-[3.5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-px w-6 bg-fg-muted transition-transform ${
+                open ? "-translate-y-[3.5px] -rotate-45" : ""
+              }`}
+            />
+          </button>
         </div>
       </nav>
+
+      {open && (
+        <ul
+          id="mobile-nav"
+          className="flex flex-col gap-1 border-t border-border px-6 py-4 font-mono text-xs uppercase tracking-widest text-fg-muted lg:hidden"
+        >
+          {LINKS.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="block py-2 transition-colors hover:text-fg"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </header>
   );
 }
