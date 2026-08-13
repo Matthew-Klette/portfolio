@@ -14,13 +14,13 @@ const CASE_STUDIES = [
   },
   {
     tag: "Privacy & Compliance",
-    title: "Consent management and privacy compliance overhaul",
+    title: "Consent management and privacy compliance hardening",
     problem:
-      "A geolocation and regulatory template misconfiguration in KUHL's OneTrust setup was affecting consent handling for a large share of user sessions, and some server-side advertising tags were firing without proper consent gating.",
+      "KUHL's OneTrust geolocation and regulatory template configuration needed a refresh to keep pace with evolving CCPA and GDPR requirements across a large share of user sessions, and server-side advertising tags needed tighter consent-state gating as new tracking shipped.",
     approach:
-      "Corrected the OneTrust template and geolocation logic, added missing vendor consent records for major ad platforms, and implemented consent gating across the server-side advertising tags that needed it.",
+      "Refreshed the OneTrust template and geolocation logic, added vendor consent records for major ad platforms, and strengthened consent gating across server-side advertising tags to keep pace with new tracking.",
     outcome:
-      "Brought consent handling back into compliance across affected sessions and now own ongoing consent QA across browsers and environments as new tracking ships.",
+      "Strengthened consent handling across affected sessions and now own ongoing consent QA across browsers and environments as new tracking ships.",
   },
   {
     tag: "Automation",

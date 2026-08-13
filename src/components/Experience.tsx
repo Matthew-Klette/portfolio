@@ -18,7 +18,7 @@ const SCOPE = [
     index: "3",
     title: "Privacy & Consent Management",
     description:
-      "Led a consent management remediation covering OneTrust — correcting a geolocation and regulatory template misconfiguration affecting a large share of user sessions, adding missing vendor consent records for major ad platforms, and gating server-side advertising tags that needed proper consent enforcement.",
+      "Own ongoing consent management covering OneTrust — refreshing geolocation and regulatory template configuration to keep pace with evolving requirements across a large share of user sessions, adding vendor consent records for major ad platforms, and strengthening consent gating on server-side advertising tags as new tracking ships.",
   },
   {
     index: "4",
