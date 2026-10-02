@@ -6,49 +6,49 @@ const SCOPE = [
     index: "1",
     title: "Tag Management & Server-Side Tracking",
     description:
-      "Own both client-side and server-side GTM end to end. Build and debug custom JavaScript templates, triggers, and variables capturing ecommerce events across the full customer journey. Ran an architecture review of the server-side container and implemented the majority of the resulting improvements myself.",
+      "Build and publish changes across the client and server-side GTM containers: custom JavaScript variables, triggers and tags capturing e-commerce events across the full customer journey. Wrote the server-side GTM audit (security, data quality, consent, maintainability) and led the fixes.",
   },
   {
     index: "2",
-    title: "Data Engineering & Warehousing",
+    title: "Event Specs & Reporting",
     description:
-      "Design and maintain BigQuery schemas and pipelines supporting attribution, product recommendation performance, and channel-level reporting — including dedicated tracking tables with row-level product attribution that now underpin business-facing dashboards, plus a Google Shopping organic attribution pipeline with an accompanying Looker Studio dashboard.",
+      "Write the GA4 event and parameter specs that BigQuery tables are built from, including row-level product attribution for on-site recommendation modules. Query those tables in SQL and build the Looker Studio reports on top for attribution, recommendation performance and channel-level reporting.",
   },
   {
     index: "3",
     title: "Privacy & Consent Management",
     description:
-      "Own ongoing consent management covering OneTrust — refreshing geolocation and regulatory template configuration to keep pace with evolving requirements across a large share of user sessions, adding vendor consent records for major ad platforms, and strengthening consent gating on server-side advertising tags as new tracking ships.",
+      "Manage OneTrust geolocation and regulatory template configuration, vendor consent records for major ad platforms, and consent gating on server-side advertising tags as new tracking ships. Took web tags with Consent Mode v2 consent checks from zero to about a third of the container.",
   },
   {
     index: "4",
     title: "Advertising Platform Integration",
     description:
-      "Own Meta Conversions API implementation and event quality — deduplication logic, click/browser ID passthrough, and ongoing pixel audits. Resolved event-match and attribution quality issues across Meta and Google Ads, including a full audit and cleanup of invalid, bot-generated events.",
+      "Meta Conversions API and Google Ads server-side tags with browser and server deduplication, click and browser ID passthrough, and ongoing event-quality checks in Meta Events Manager.",
   },
   {
     index: "5",
     title: "Marketing Analytics & Reporting",
     description:
-      "Own Microsoft Clarity configuration — session tooling, funnel setup, Core Web Vitals monitoring — using it to diagnose layout-stability issues on high-traffic product pages. Scope and deliver custom reports on feature usage and conversion impact that inform product and merchandising decisions.",
+      "Configure Microsoft Clarity (session tooling, funnels, Core Web Vitals monitoring) and use it to investigate layout stability on high-traffic product pages. Scope and deliver custom reports on feature usage and conversion impact for product and merchandising decisions.",
   },
   {
     index: "6",
     title: "Automation & Internal Tooling",
     description:
-      "Design and maintain n8n workflow automations orchestrating content generation and data synchronization, including concurrency and run-lock logic to prevent race conditions. Independently built a Python-based compliance scanning tool with an API layer and automated reporting.",
+      "Built 4 production n8n automations, including a product-page content pipeline with human review, with run-lock logic so overlapping runs can't collide. Use MCP integrations to connect Claude to tools like Linear and n8n. Contributed to an internal privacy scanner: headless scanning, report delivery and AI-generated reports.",
   },
   {
     index: "7",
     title: "Data Integrity & QA",
     description:
-      "Sole point of ownership for the analytics and tracking stack, managing the full lifecycle from requirements through implementation to QA. Diagnose and resolve discrepancies between client-side and server-side event counts, and build custom server-side tagging templates to extend GTM's native capabilities for platform-specific event handling.",
+      "Take tracking work from requirements through implementation to QA. Reconcile client-side and server-side event counts, and configure server-side tags for platform-specific event handling.",
   },
   {
     index: "8",
     title: "Stakeholder Coordination & Documentation",
     description:
-      "Coordinate directly with stakeholders to translate business reporting needs into tracking specifications and dashboard requirements. Document tracking architecture and data flow to support long-term maintainability of the analytics infrastructure.",
+      "Coordinate directly with stakeholders to translate business reporting needs into tracking specifications and dashboard requirements. Document tracking architecture and data flow so the setup stays maintainable.",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <SectionEyebrow number="04" label="EXPERIENCE" />
+        <SectionEyebrow number="05" label="EXPERIENCE" />
       </Reveal>
 
       <Reveal>
@@ -66,17 +66,17 @@ export default function Experience() {
               Dec 2024 — Present · Remote
             </p>
             <h3 className="font-heading text-3xl tracking-tight text-fg sm:text-4xl">
-              MarTech &amp; Analytics Engineer
+              Contract MarTech Engineer
             </h3>
             <p className="mt-1 font-mono text-sm text-fg-muted">
-              Independent Contractor — KUHL
+              Independent Contractor — KÜHL, via MBK Consulting Group
             </p>
           </div>
           <p className="max-w-sm font-mono text-sm leading-relaxed text-fg-muted">
-            Sole engineer owning the full analytics, tracking, and MarTech
-            stack for KUHL&apos;s ecommerce platform — from client-side
-            capture through server-side processing to warehouse storage and
-            downstream activation.
+            Contract MarTech engineer for KÜHL since December 2024, and the
+            primary engineer for client and server-side tagging and consent:
+            from browser capture through the server-side container to the ad
+            platforms, and the GA4 specs and reporting built on top.
           </p>
         </div>
       </Reveal>

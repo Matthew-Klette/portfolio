@@ -3,7 +3,7 @@
 Personal portfolio site. Next.js (App Router), static export, Tailwind CSS.
 Monochrome dark theme (black/white/gray), Bebas Neue + JetBrains Mono via `next/font/google`.
 
-Live: [add your Vercel URL here once deployed]
+Live: https://mbkconsultinggroup-portfolio.vercel.app/
 
 ## Stack
 
@@ -29,15 +29,19 @@ All copy lives directly in the section components — there's no CMS or data fil
 |---|---|
 | Name, nav links, logo mark | `src/components/Nav.tsx` |
 | Hero headline, CTAs | `src/components/Hero.tsx` |
+| Services | `src/components/Services.tsx` |
 | Tech stack ticker | `src/components/TechStack.tsx` |
 | Bio | `src/components/About.tsx` |
 | Skill categories | `src/components/Skills.tsx` |
 | Case studies | `src/components/Work.tsx` |
-| Experience (role, scope of ownership) | `src/components/Experience.tsx` |
-| Education (BCAD course clusters) | `src/components/Education.tsx` |
-| Email, LinkedIn | `src/components/Contact.tsx` |
+| Experience (role, scope) | `src/components/Experience.tsx` |
+| Education | `src/components/Education.tsx` |
+| Email, LinkedIn, booking link, site URL | `src/lib/site.ts` (shared by Hero, Contact, Footer, metadata) |
+| Contact section | `src/components/Contact.tsx` |
 | Footer | `src/components/Footer.tsx` |
-| Site title/meta description, favicon | `src/app/layout.tsx` |
+| Site title/meta description, Open Graph, JSON-LD | `src/app/layout.tsx`, `src/components/JsonLd.tsx` |
+| Open Graph image (1200x630, built to `out/og.png`) | `src/lib/og-image.tsx`, `src/app/og.png/route.tsx` (fonts in `assets/fonts`, OFL) |
+| robots.txt, sitemap.xml | `src/app/robots.ts`, `src/app/sitemap.ts` |
 | Colors, fonts | `src/app/globals.css` (`--bg`, `--fg`, `--off-white`, `--border` custom properties) |
 
 Search the codebase for bracketed placeholders (`[YOUR-LINKEDIN]`, `[TIMEFRAME]`, `[Institution name]`, `[PROJECT NAME]`, etc.) and replace them with real copy:
@@ -56,7 +60,7 @@ Contact is a plain `mailto:` link — no form, no third-party service, no data c
 
 ### Logo / favicon
 
-The MK monogram lives at `public/mark.png` (used as favicon + nav mark) and `public/apple-touch-icon.png`. The untouched original is kept at `public/logo-full.png`. Regenerate the crop if you replace the source logo:
+The MK monogram lives at `public/mark.png` (nav mark), `src/app/favicon.ico` (favicon) and `public/apple-touch-icon.png`. The untouched original is kept at `public/logo-full.png`. Regenerate the crop if you replace the source logo:
 
 ```bash
 python3 -c "

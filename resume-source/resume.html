@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matthew Klette — Résumé</title>
+<style>
+  @page { size: A4; margin: 9mm 12mm 8mm; }
+  :root {
+    --ink: #111;
+    --muted: #555;
+    --rule: #bbb;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; color: var(--ink); }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 8.2pt;
+    line-height: 1.28;
+  }
+  .page { max-width: 184mm; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 5pt; }
+  h1 { font-size: 19pt; letter-spacing: 2.5pt; margin: 0; font-weight: 700; }
+  .role { font-size: 9pt; letter-spacing: 2pt; text-transform: uppercase; color: var(--muted); margin: 1pt 0 3pt; }
+  .contact { font-size: 8pt; color: var(--ink); }
+  h2 {
+    font-size: 8.6pt; letter-spacing: 1.6pt; text-transform: uppercase;
+    margin: 6pt 0 2.5pt; padding-bottom: 1.5pt; border-bottom: 0.75pt solid var(--rule);
+  }
+  p { margin: 0; }
+  ul { margin: 0; padding-left: 10pt; }
+  li { margin: 0 0 1.2pt; }
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5pt 14pt; }
+  .skills b { text-transform: uppercase; font-size: 7.6pt; letter-spacing: 0.6pt; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .job-title { font-weight: 700; font-size: 9pt; }
+  .meta { color: var(--muted); font-size: 8pt; }
+  .job-sub { margin-bottom: 2pt; }
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 3pt 14pt; }
+  .project b { font-size: 8.4pt; }
+  .project .meta { display: block; font-size: 7.6pt; }
+  .edu p { margin-bottom: 1pt; }
+    a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>MATTHEW KLETTE</h1>
+  <p class="role">MarTech Engineer</p>
+  <p class="contact">
+    +27 76 013 1716 (messages only) · mbkconsultinggroup@gmail.com · Port Elizabeth, South Africa<br>
+    <a href="https://www.linkedin.com/in/matthewklette/">linkedin.com/in/matthewklette</a> ·
+    <a href="https://mbkconsultinggroup-portfolio.vercel.app/">mbkconsultinggroup-portfolio.vercel.app</a>
+  </p>
+</header>
+
+<h2>Summary</h2>
+<p>
+  MarTech Engineer with a background spanning analytics engineering, workflow automation, and full-stack
+  development. Contract MarTech engineer for KÜHL since December 2024 through MBK Consulting Group, and the
+  primary engineer for client and server-side tagging and consent: server-side Google Tag Manager on Stape,
+  Meta Conversions API and Google Ads server-side tags, Consent Mode v2 and OneTrust, GA4 event specs, and
+  Looker Studio reporting on BigQuery, with AI-assisted development and automation workflows. Background also spans mobile and web development and applied AI
+  tooling, alongside a BCAD in Application Development.
+</p>
+
+<h2>Skills</h2>
+<div class="skills">
+  <p><b>Analytics &amp; MarTech:</b> Google Analytics (GA4), Google Tag Manager (client + server-side), Google Ads,
+    BigQuery (SQL analysis &amp; reporting), Looker Studio, Consent Mode v2, Microsoft Clarity, Meta Business Suite,
+    Bazaarvoice, Statistical Data Analysis</p>
+  <p><b>Development:</b> JavaScript (ES5/ES6+), TypeScript, React.js, React Native, Tailwind CSS, Kotlin, SQL,
+    PostgreSQL, Python, Full-Stack Development, Back-End Web Development</p>
+  <p><b>Automation &amp; AI:</b> n8n, MCP integrations, Claude API, Claude Code, AI Fluency Framework &amp; Foundations</p>
+  <p><b>Infrastructure &amp; Tools:</b> Docker, Tailscale, Obsidian, Microsoft Azure, Firebase, Supabase, GitHub,
+    Jira (Atlassian), Linear, Notion, Strapi CMS, Internal Admin &amp; CMS System Integration</p>
+</div>
+
+<h2>Experience</h2>
+<div class="job-head">
+  <span class="job-title">Contract MarTech Engineer, KÜHL — via MBK Consulting Group</span>
+  <span class="meta">December 2024 – Present</span>
+</div>
+<p class="meta job-sub">Independent contractor · Remote · KÜHL is a client of MBK Consulting Group</p>
+<ul>
+  <li>Authored 249 production GTM releases across web and server-side containers since January 2025 (over 80% of all releases)</li>
+  <li>Wrote the server-side GTM audit and led the fixes, including Meta CAPI deduplication and consent gating</li>
+  <li>Took web tags with Consent Mode v2 consent checks from zero to about a third of the container</li>
+  <li>Nearly doubled the server-side event streams feeding the warehouse</li>
+  <li>Built 4 n8n automations, including a product-page content pipeline with human review</li>
+  <li>Build and publish changes across client-side and server-side Google Tag Manager, routing events from the
+    dataLayer through server-side data client tags for platform-specific handling</li>
+  <li>Write the GA4 event specs that BigQuery tables are built from, and build Looker Studio reports
+    on top for attribution and channel-level reporting</li>
+  <li>Implement Meta Conversions API and Google Ads server-side tags with deduplication and parameter passthrough
+    to improve event match quality</li>
+  <li>Manage consent configuration across CCPA and GDPR requirements using OneTrust and Google Consent Mode</li>
+  <li>Contributed to an internal privacy scanner (headless scanning, report delivery, AI-generated reports)</li>
+  <li>Implemented Microsoft Clarity session recording through the tag management layer (element labeling, funnels),
+    and designed dataLayer tracking for on-site recommendation modules (placement- and utilization-level reporting)</li>
+  <li>Diagnose discrepancies between client-side and server-side event counts, investigate GA4 event-volume
+    anomalies, and maintain tag, trigger and variable hygiene across a high-volume GTM container</li>
+  <li>Translate stakeholder reporting needs into tracking specs and document tracking architecture; work in GitHub,
+    Linear and Jira, with Claude, Claude Code and MCP integrations (connecting Claude to Linear and n8n)</li>
+</ul>
+
+<h2>Projects</h2>
+<div class="projects">
+  <div class="project">
+    <b>Server-Side Tracking</b>
+    <span class="meta">KÜHL (client) · GTM (server-side) · Stape · December 2024 – Present</span>
+    Extended server-side event routing on Stape, nearly doubling the server-side event streams that feed
+    reporting, with deduplication and consent gating on the ad-platform tags.
+  </div>
+  <div class="project">
+    <b>Attribution Reporting</b>
+    <span class="meta">KÜHL (client) · GA4 · BigQuery · Looker Studio · December 2024 – Present</span>
+    Wrote the GA4 event specs behind the attribution tables and built Looker Studio reporting on top,
+    surfacing channel-level performance alongside platform-native reporting.
+  </div>
+  <div class="project">
+    <b>Conversions API Deduplication</b>
+    <span class="meta">KÜHL (client) · Meta CAPI · December 2024 – Present</span>
+    Server-side conversion event delivery to Meta with browser/server deduplication and event-match
+    parameter passthrough across the funnel.
+  </div>
+  <div class="project">
+    <b>Consent &amp; Privacy</b>
+    <span class="meta">KÜHL (client) · OneTrust · Google Consent Mode · December 2024 – Present</span>
+    Geolocation-based consent rule logic and consent-state propagation into the tag layer.
+  </div>
+  <div class="project">
+    <b>Utah Mountain Lion Conservation</b>
+    <span class="meta">Postcard Campaign · Wix Studio · Velo · Geocodio</span>
+    Legislator lookup and postcard-generation tool for a public advocacy campaign: address-to-district
+    resolution with Geocodio, mobile-optimized embed built with Velo page code.
+  </div>
+  <div class="project">
+    <b>Ingot — Budget Tracker</b>
+    <span class="meta">University project · Kotlin · Firebase · MPAndroidChart · 2026</span>
+    Android budget tracker with receipt capture, category budgets, savings goals, spending charts and
+    XP-based gamification to build budgeting habits.
+  </div>
+</div>
+
+<h2>Education</h2>
+<div class="edu">
+  <p><b>Emeris (formerly IIE Varsity College):</b> BCAD in Application Development (Bachelor of Computer and
+    Information Sciences), completing 2026; Higher Certificate in Mobile Application and Web Development, 2023, with distinction</p>
+</div>
+
+<h2>Certifications</h2>
+<p class="certs-inline"><b>Anthropic:</b> AI Fluency: Framework &amp; Foundations · AI Fluency for Students ·
+  AI Fluency for Educators · AI Fluency: Capabilities &amp; Limitations · Claude 101 · Claude Code 101 ·
+  Claude Code in Action · Introduction to Claude Cowork · Claude with Amazon Bedrock ·
+  Claude with Google Cloud's Vertex AI · Building with the Claude API · Introduction to Model Context Protocol ·
+  Model Context Protocol: Advanced Topics · Introduction to Subagents.
+  <b>Analytics Mania:</b> Google Analytics Fundamentals · Google Tag Manager Fundamentals.
+  <b>Great Learning:</b> Front End Development – CSS.</p>
+
+</div>
+</body>
+</html>

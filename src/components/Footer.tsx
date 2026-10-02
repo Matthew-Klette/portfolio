@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import { BOOKING_URL, SITE_NAME } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
         </Reveal>
         <div className="mt-10 flex flex-col items-center gap-4">
           <a
-            href="mailto:mbkconsultinggroup@gmail.com?subject=Portfolio%20Inquiry"
+            href={BOOKING_URL}
             className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 font-mono text-xs uppercase tracking-widest text-bg transition-colors hover:bg-off-white"
           >
             <span aria-hidden>↗</span> I&apos;m available for new projects
@@ -19,7 +20,9 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-4 border-t border-border px-6 py-8 font-mono text-xs text-fg-muted sm:flex-row">
-        <p>© {new Date().getFullYear()} Matthew Klette. All rights reserved.</p>
+        <p>
+          © {new Date().getFullYear()} {SITE_NAME}
+        </p>
       </div>
     </footer>
   );

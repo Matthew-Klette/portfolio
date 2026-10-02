@@ -1,6 +1,7 @@
 import Reveal from "./Reveal";
 import SectionEyebrow from "./SectionEyebrow";
 
+// Order: tracking, then data, then automation, then dev.
 const CATEGORIES = [
   {
     index: "1",
@@ -8,87 +9,81 @@ const CATEGORIES = [
     items: [
       "Client-side & server-side GTM",
       "Custom HTML tag authoring (ES5 + ES6+)",
-      "JSON container export / import workflows",
       "Tag, trigger & variable template creation",
-      "Stape data client, Consent Mode v2, OneTrust",
+      "JSON container export / import workflows",
+      "Stape — sGTM data client setup & routing",
     ],
   },
   {
     index: "2",
-    title: "Data & Analytics",
+    title: "Ad Platforms & Consent",
     items: [
-      "BigQuery — table design & complex SQL",
-      "GA4 event schema & full parameter ownership",
-      "Microsoft Clarity — session & heatmap analysis",
-      "Conversion tracking & multi-touch attribution",
-      "Looker Studio — BigQuery dashboards & reporting",
+      "Meta CAPI, Pixel & Business Suite",
+      "Google Ads — conversion tracking",
+      "Consent Mode v2 initialization & templates",
+      "OneTrust — geolocation rules & vendor consent",
+      "Klaviyo, Criteo, Bazaarvoice",
     ],
   },
   {
     index: "3",
-    title: "AI & Automation",
+    title: "Data & Analytics",
     items: [
-      "MCP server creation & deployment",
-      "Claude AI integration & prompt engineering",
-      "Claude Code — agentic development workflows",
-      "n8n complex workflow automation",
-      "API orchestration",
+      "GA4 event specs & parameters",
+      "BigQuery — SQL analysis & reporting",
+      "Looker Studio — BigQuery dashboards & reporting",
+      "Microsoft Clarity — session & heatmap analysis",
+      "Conversion tracking & multi-touch attribution",
     ],
   },
   {
     index: "4",
-    title: "Languages",
+    title: "AI & Automation",
     items: [
-      "JavaScript — expert (ES5 + ES6+)",
-      "TypeScript — production use",
-      "Python — automation, scripting, tooling",
-      "SQL — complex queries & BigQuery",
-      "Kotlin — Android & React Native",
+      "n8n workflow automation",
+      "MCP integrations — Claude with Linear, n8n & more",
+      "Claude AI integration & prompt engineering",
+      "Claude Code — agentic development workflows",
+      "API orchestration",
     ],
   },
   {
     index: "5",
+    title: "Languages",
+    items: [
+      "JavaScript — expert (ES5 + ES6+)",
+      "TypeScript — production use",
+      "SQL — complex queries & BigQuery",
+      "Python — automation, scripting, tooling",
+    ],
+  },
+  {
+    index: "6",
     title: "Frontend & Infrastructure",
     items: [
       "React, React Native, TypeScript",
       "Tailwind CSS, responsive design",
       "Strapi CMS — headless content modeling",
       "Docker — containerised deployments",
-      "Tailscale VPN — mesh network remote dev",
-      "Microsoft Azure — cloud infrastructure",
-    ],
-  },
-  {
-    index: "6",
-    title: "MarTech Ecosystem",
-    items: [
-      "Klaviyo — email & event integration",
-      "Meta CAPI, Pixel & Business Suite",
-      "Google Ads — campaigns & conversion tracking",
-      "Criteo, Bazaarvoice, OneTrust",
-      "Consent Mode v2 initialization & templates",
-      "Stape — sGTM data client setup & routing",
     ],
   },
   {
     index: "7",
-    title: "Tooling & Workflow",
+    title: "Databases & Backends",
     items: [
-      "Jira — sprint & issue tracking",
-      "Linear — project & ticket management",
-      "Notion — docs, SOPs & knowledge base",
-      "Obsidian — personal knowledge base",
-      "Git & GitHub — version control",
+      "Supabase & PostgreSQL",
+      "Firebase Realtime DB & Firestore",
+      "REST API design & debugging (Postman)",
     ],
   },
   {
     index: "8",
-    title: "Databases & Backends",
+    title: "Tooling & Workflow",
     items: [
-      "Firebase Realtime DB & Firestore",
-      "Supabase & PostgreSQL",
-      "SSMS — Microsoft SQL Server",
-      "REST API design & debugging (Postman)",
+      "Git & GitHub — version control",
+      "Linear — project & ticket management",
+      "Jira — sprint & issue tracking",
+      "Notion — docs, SOPs & knowledge base",
     ],
   },
 ];
@@ -97,7 +92,7 @@ export default function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <SectionEyebrow number="02" label="SKILLS" />
+        <SectionEyebrow number="03" label="SKILLS" />
         <h2 className="mb-14 max-w-2xl font-heading text-3xl leading-tight tracking-tight text-fg sm:text-4xl">
           The stack I use to keep tracking and automation systems honest.
         </h2>
