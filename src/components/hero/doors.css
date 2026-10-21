@@ -221,14 +221,20 @@
   justify-content: flex-end; /* newest rows overflow off the top */
   padding-top: 72px;
   padding-bottom: 36px;
-  mask-image: linear-gradient(transparent 18%, #000 60%, #000 82%, transparent 100%);
+  mask-image:
+    linear-gradient(transparent 18%, #000 60%, #000 82%, transparent 100%),
+    linear-gradient(90deg, #000 78%, transparent 97%);
+  mask-composite: intersect;
 }
 
 .stream-bottom {
   grid-row: 7;
   padding-top: 40px;
   padding-bottom: 64px;
-  mask-image: linear-gradient(transparent 0, #000 22%, #000 55%, transparent 92%);
+  mask-image:
+    linear-gradient(transparent 0, #000 22%, #000 55%, transparent 92%),
+    linear-gradient(90deg, #000 78%, transparent 97%);
+  mask-composite: intersect;
 }
 
 .stream-row {

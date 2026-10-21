@@ -1,11 +1,15 @@
 
 .catalog-glow {
   position: absolute;
-  inset: 0 0 auto;
-  height: 420px;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 560px;
+  translate: -50% 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(50% 60% at 50% 0%, rgba(34, 255, 153, 0.06), transparent 70%);
+  /* fades to nothing inside its own box, so no edge shows */
+  background: radial-gradient(closest-side at 50% 50%, rgba(34, 255, 153, 0.07), transparent);
 }
 
 .catalog-tools {

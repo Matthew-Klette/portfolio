@@ -92,30 +92,6 @@ export const OTHER_WORK = {
   ],
 } as const;
 
-// Core tracking and reporting stack first; general dev tools after.
-export const TOOLS = [
-  { name: "GTM", detail: "Client + server" },
-  { name: "Stape", detail: "sGTM hosting" },
-  { name: "GA4", detail: "Event specs" },
-  { name: "Meta CAPI", detail: "Server-side" },
-  { name: "Consent Mode v2", detail: "Tag gating" },
-  { name: "OneTrust", detail: "Geo rules" },
-  { name: "BigQuery", detail: "SQL reporting" },
-  { name: "Looker Studio", detail: "BQ dashboards" },
-  { name: "n8n", detail: "Workflows" },
-  { name: "Klaviyo", detail: "Email events" },
-  { name: "Clarity", detail: "Session data" },
-  { name: "MCP", detail: "AI tooling" },
-  { name: "JavaScript", detail: "ES5 + ES6+" },
-  { name: "Python", detail: "Scripting" },
-  { name: "React", detail: "TypeScript" },
-  { name: "three.js", detail: "WebGL" },
-  { name: "Supabase", detail: "PostgreSQL" },
-  { name: "Docker", detail: "Containers" },
-  { name: "Strapi", detail: "Headless CMS" },
-  { name: "React Native", detail: "Mobile" },
-] as const;
-
 // Order: tracking, then data, then automation, then dev.
 export const SKILLS = [
   {
