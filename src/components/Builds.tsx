@@ -37,6 +37,20 @@ const BUILDS: Build[] = [
       "A scroll-driven Minecraft night-cycle story. Three.js, GSAP and Lenis.",
     href: "https://minecraft-nightfall.vercel.app",
   },
+  {
+    tag: "Encyclopedia",
+    title: "Notes & Hours",
+    description:
+      "A fragrance index of 60 real scents, with designer originals set against their dupes. Next.js, GSAP, Lenis and WebGL gradients.",
+    href: "https://fragrance-index.vercel.app",
+  },
+  {
+    tag: "Specimen Catalog",
+    title: "Hydrurga",
+    description:
+      "A specimen catalog of the leopard seal that you read by diving under the ice. Vite, React, WebGL2 and d3-geo.",
+    href: "https://hydrurga.vercel.app",
+  },
 ];
 
 function BuildCard({ build, index }: { build: Build; index: number }) {
@@ -75,7 +89,7 @@ export default function Builds() {
           Personal frontend builds.
         </h2>
       </Reveal>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {BUILDS.map((build, i) => (
           <Reveal key={build.title} delay={i * 80}>
             <BuildCard build={build} index={i} />
