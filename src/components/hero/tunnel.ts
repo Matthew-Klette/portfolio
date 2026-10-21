@@ -4,8 +4,9 @@ import { FIELD, cardCount, depthFade, place } from "./field";
 const FOV = 50;
 const CARD_W = 1.15;
 const CARD_H = 0.72;
-const SWAP_MS = 520;
-const SWAP_STAGGER_MS = 420;
+const SWAP_MS = 900;
+const SWAP_STAGGER_MS = 700;
+const EXIT_NDC = 1.25; // a card respawns once it has fully left the view
 const PORTRAIT_SCALE = 0.78;
 
 const vertex = /* glsl */ `
@@ -17,6 +18,8 @@ const vertex = /* glsl */ `
 `;
 
 // Rounded-rect mask, crossfade between two shots, brightness from depth.
+// Drawn opaque with depth testing: on the black canvas, fading to black reads as
+// transparency, and depth keeps overlapping cards in a stable order (no popping).
 const fragment = /* glsl */ `
   uniform sampler2D tA;
   uniform sampler2D tB;
@@ -30,13 +33,13 @@ const fragment = /* glsl */ `
   void main() {
     vec2 p = (vUv - 0.5) * vec2(${CARD_W.toFixed(2)}, ${CARD_H.toFixed(2)});
     float d = roundedBox(p, vec2(${(CARD_W / 2).toFixed(2)}, ${(CARD_H / 2).toFixed(2)}), 0.08);
-    float mask = 1.0 - smoothstep(-0.008, 0.008, d);
+    if (d > 0.0) discard;
+    float mask = 1.0 - smoothstep(-0.012, 0.0, d); // soften the corner edge toward black
     vec3 col = mix(texture2D(tA, vUv).rgb, texture2D(tB, vUv).rgb, mixv);
     // hairline inner edge, like the 1px translucent borders on the page
     float edge = 1.0 - smoothstep(0.0, 0.012, abs(d + 0.006));
     col = mix(col, vec3(1.0), edge * 0.12);
-    float a = mask * fade;
-    gl_FragColor = vec4(col * a, a); // premultiplied
+    gl_FragColor = vec4(col * fade * mask, 1.0);
   }
 `;
 
@@ -78,12 +81,9 @@ export function createTunnel(canvas: HTMLCanvasElement, shotUrls: readonly strin
       uniforms: { tA: { value: pick() }, tB: { value: pick() }, mixv: { value: 0 }, fade: { value: 0 } },
       vertexShader: vertex,
       fragmentShader: fragment,
-      transparent: true,
-      premultipliedAlpha: true,
-      depthWrite: false,
     });
     const mesh = new THREE.Mesh(geometry, material);
-    const z = FIELD.farZ + ((i + 0.5) / FIELD.count) * (FIELD.nearZ - FIELD.farZ);
+    const z = FIELD.farZ + ((i + 0.5) / FIELD.count) * (FIELD.startZ - FIELD.farZ);
     respawn(mesh, z);
     scene.add(mesh);
     return {
@@ -103,6 +103,12 @@ export function createTunnel(canvas: HTMLCanvasElement, shotUrls: readonly strin
       c.mesh.scale.setScalar(scale);
     });
   }
+
+  const projected = new THREE.Vector3();
+  const offscreen = (mesh: THREE.Mesh) => {
+    projected.copy(mesh.position).project(camera);
+    return Math.abs(projected.x) > EXIT_NDC || Math.abs(projected.y) > EXIT_NDC || mesh.position.z > FIELD.nearZ;
+  };
 
   function respawn(mesh: THREE.Mesh, z: number) {
     const p = place(z, FOV, camera.aspect, Math.random);
@@ -126,7 +132,7 @@ export function createTunnel(canvas: HTMLCanvasElement, shotUrls: readonly strin
   const ro = new ResizeObserver(() => {
     resize();
     applyLayout();
-    if (reducedMotion) renderOnce();
+    renderOnce(); // resizing clears the canvas; redraw in the same frame so it never flashes
   });
   ro.observe(canvas);
   resize();
@@ -141,7 +147,7 @@ export function createTunnel(canvas: HTMLCanvasElement, shotUrls: readonly strin
     for (const c of cards) {
       const m = c.mesh;
       m.position.z += FIELD.speed * dt;
-      if (m.position.z > FIELD.nearZ) {
+      if (offscreen(m)) {
         respawn(m, FIELD.farZ);
         m.material.uniforms.tA.value = pick();
         m.material.uniforms.mixv.value = 0;
@@ -182,6 +188,9 @@ export function createTunnel(canvas: HTMLCanvasElement, shotUrls: readonly strin
       theme = shotIndexes.length ? shotIndexes : theme;
       const now = performance.now();
       for (const c of cards) {
+        // finish any swap still running before starting the next one
+        if (c.swapStart >= 0) c.mesh.material.uniforms.tA.value = c.mesh.material.uniforms.tB.value;
+        c.mesh.material.uniforms.mixv.value = 0;
         c.mesh.material.uniforms.tB.value = pick();
         c.swapStart = reducedMotion ? 0 : now + Math.random() * SWAP_STAGGER_MS;
         if (reducedMotion) {

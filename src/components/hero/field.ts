@@ -1,12 +1,12 @@
 // Pure placement maths for the card field, kept apart from three.js so it can be tested.
 
 export const FIELD = {
-  count: 110,
-  nearZ: -6.5, // cards respawn once they pass this depth
+  count: 160,
+  nearZ: -2.5, // backstop: cards normally respawn once they leave the view
+  startZ: -7, // initial fill stops here so nothing starts huge
   farZ: -24,
   speed: 0.38, // world units per second toward the camera
   fadeInSpan: 5, // depth over which a new card fades up from black
-  fadeOutSpan: 1.4,
   maxR: 1.25,
 } as const;
 
@@ -56,9 +56,7 @@ export function place(z: number, fovDeg: number, aspect: number, rand: () => num
   return { x: 0, y: h * FIELD.maxR, z };
 }
 
-/** 0..1 brightness: fade up from black at the back, out just before the camera. */
+/** 0..1 brightness: new cards fade up from black at the back, then stay lit until they leave the view. */
 export function depthFade(z: number): number {
-  const back = Math.min(1, Math.max(0, (z - FIELD.farZ) / FIELD.fadeInSpan));
-  const front = Math.min(1, Math.max(0, (FIELD.nearZ - z) / FIELD.fadeOutSpan));
-  return back * front;
+  return Math.min(1, Math.max(0, (z - FIELD.farZ) / FIELD.fadeInSpan));
 }

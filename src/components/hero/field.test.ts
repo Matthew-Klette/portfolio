@@ -33,10 +33,11 @@ describe("place", () => {
 });
 
 describe("depthFade", () => {
-  test("is black at both ends and full in the middle", () => {
+  test("fades up from black at the back and stays lit after that", () => {
     expect(depthFade(FIELD.farZ)).toBe(0);
-    expect(depthFade(FIELD.nearZ)).toBe(0);
-    expect(depthFade((FIELD.farZ + FIELD.nearZ) / 2)).toBe(1);
+    expect(depthFade(FIELD.farZ + FIELD.fadeInSpan / 2)).toBeCloseTo(0.5);
+    expect(depthFade(FIELD.startZ)).toBe(1);
+    expect(depthFade(FIELD.nearZ)).toBe(1);
   });
 });
 

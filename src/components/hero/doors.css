@@ -7,7 +7,6 @@
   grid-template-rows: minmax(112px, 1fr) repeat(5, auto) minmax(112px, 1fr);
   min-height: max(100svh, 720px);
   border-bottom: 1px solid var(--hairline);
-  transition: grid-template-columns 700ms var(--ease-out);
 }
 
 .doors-intro {
@@ -56,12 +55,6 @@
 }
 
 @media (hover: hover) and (min-width: 861px) {
-  .doors:has(.door-analytics:hover) {
-    grid-template-columns: 1.32fr 1fr;
-  }
-  .doors:has(.door-builds:hover) {
-    grid-template-columns: 1fr 1.32fr;
-  }
   .doors:has(.door:hover) .door:not(:hover) .door-content {
     opacity: 0.55;
   }
