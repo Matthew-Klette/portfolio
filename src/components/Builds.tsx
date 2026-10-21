@@ -41,7 +41,7 @@ const BUILDS: Build[] = [
     tag: "Encyclopedia",
     title: "Notes & Hours",
     description:
-      "A fragrance index of 60 real scents, with designer originals set against their dupes. Next.js, GSAP, Lenis and WebGL gradients.",
+      "A fragrance index of 58 real scents, with designer originals set against their dupes. Next.js, GSAP, Lenis and WebGL gradients.",
     href: "https://fragrance-index.vercel.app",
   },
   {
@@ -85,9 +85,17 @@ export default function Builds() {
     <section id="builds" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
         <SectionEyebrow number="03" label="BUILDS" />
-        <h2 className="mb-14 max-w-2xl font-heading text-3xl leading-tight tracking-tight text-fg sm:text-4xl">
+        <h2 className="mb-6 max-w-2xl font-heading text-3xl leading-tight tracking-tight text-fg sm:text-4xl">
           Personal frontend builds.
         </h2>
+        <a
+          href="https://mattklette-builds.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mb-14 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-fg/70 transition-colors hover:text-fg"
+        >
+          <span aria-hidden>↗</span> Browse them all, live, in the catalog
+        </a>
       </Reveal>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {BUILDS.map((build, i) => (
