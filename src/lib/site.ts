@@ -3,9 +3,9 @@ export const SITE_NAME = "MBK Consulting Group";
 export const PERSON_NAME = "Matthew Klette";
 
 export const SITE_TITLE =
-  "Matthew Klette — Server-Side Tracking & Consent for E-commerce";
+  "Matthew Klette — Server-Side Tracking, Consent & Frontend Builds";
 export const SITE_DESCRIPTION =
-  "Server-side GTM, GA4, Meta CAPI, Consent Mode v2 and BigQuery/Looker Studio reporting for e-commerce brands whose revenue numbers don't match up.";
+  "Server-side GTM, GA4, Meta CAPI, Consent Mode v2 and BigQuery/Looker Studio reporting for e-commerce brands whose revenue numbers don't match up, plus live frontend builds in React, three.js and WebGL.";
 
 export const EMAIL = "mbkconsultinggroup@gmail.com";
 export const EMAIL_URL = `mailto:${EMAIL}?subject=Portfolio%20Inquiry`;
@@ -18,5 +18,5 @@ export const RESUME_URL = "/resume.pdf";
 
 export const OG_IMAGE_PATH = "/og.png";
 export const OG_IMAGE_ALT =
-  "Matthew Klette — server-side tracking and consent for e-commerce";
+  "Matthew Klette — analytics engineering and frontend builds";
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 } as const;

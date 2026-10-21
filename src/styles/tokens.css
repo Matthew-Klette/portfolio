@@ -1,0 +1,41 @@
+/* Resend's dark register (awesome-design-md/resend). Licensed display faces are
+   swapped for free ones: Domaine Display → Instrument Serif, ABC Favorit / Inter → Geist. */
+:root {
+  --canvas: #000000;
+  --surface-deep: #06060a;
+  --surface-card: #0a0a0c;
+  --surface-elevated: #101012;
+  --ink: #fcfdff;
+  --body: rgba(252, 253, 255, 0.86);
+  --charcoal: rgba(252, 253, 255, 0.7);
+  --mute: #a1a4a5;
+  --ash: #888e90;
+  --hairline: rgba(255, 255, 255, 0.06);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+  --divider: rgba(255, 255, 255, 0.04);
+  --primary-pressed: #f1f7fe;
+  --accent-green: #11ff99;
+  --glow-orange: rgba(255, 89, 0, 0.22);
+  --glow-blue: rgba(0, 117, 255, 0.34);
+  --link: #3b9eff;
+
+  --font-display: var(--font-instrument), "Times New Roman", serif;
+  --font-body: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --text-display: clamp(3rem, 1.1rem + 6.4vw, 6rem);
+  --text-heading: clamp(2.25rem, 1.3rem + 2.8vw, 4rem);
+  --text-door: clamp(2.75rem, 1rem + 4.6vw, 5.5rem);
+
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-full: 9999px;
+
+  --space-section: clamp(4rem, 2.5rem + 5vw, 8rem);
+  --gutter: clamp(16px, 4vw, 32px);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 220ms;
+  color-scheme: dark;
+}

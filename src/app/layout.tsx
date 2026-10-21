@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
 import {
   OG_IMAGE_ALT,
@@ -12,17 +12,18 @@ import {
 } from "@/lib/site";
 import "./globals.css";
 
-const bebasNeue = Bebas_Neue({
-  variable: "--font-bebas-neue",
+// Resend's licensed faces swapped for free ones: Domaine Display → Instrument Serif,
+// ABC Favorit / Inter → Geist.
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
   subsets: ["latin"],
   weight: ["400"],
+  style: ["normal", "italic"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
+const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
+
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 // favicon.ico in this folder is picked up by Next's file convention.
 // The OG image is served from the static og.png route (see app/og.png).
@@ -62,11 +63,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${bebasNeue.variable} ${jetbrainsMono.variable} h-full scroll-smooth`}
-    >
-      <body className="min-h-full flex flex-col bg-bg text-fg antialiased selection:bg-fg selection:text-bg">
+    <html lang="en" className={`${instrument.variable} ${geist.variable} ${geistMono.variable}`}>
+      <body>
         <JsonLd />
         {children}
       </body>

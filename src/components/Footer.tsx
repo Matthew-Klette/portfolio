@@ -1,29 +1,23 @@
-import Reveal from "./Reveal";
-import { BOOKING_URL, SITE_NAME } from "@/lib/site";
+import { LINKEDIN_URL, SITE_NAME } from "@/lib/site";
+
+const LINKS = [
+  { label: "GitHub", href: "https://github.com/Matthew-Klette" },
+  { label: "LinkedIn", href: LINKEDIN_URL },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-6 py-24 text-center">
-        <Reveal>
-          <h2 className="font-heading text-[clamp(2.5rem,10vw,7rem)] leading-none tracking-tight text-border">
-            [ LET&apos;S TALK ]
-          </h2>
-        </Reveal>
-        <div className="mt-10 flex flex-col items-center gap-4">
-          <a
-            href={BOOKING_URL}
-            className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 font-mono text-xs uppercase tracking-widest text-bg transition-colors hover:bg-off-white"
-          >
-            <span aria-hidden>↗</span> I&apos;m available for new projects
+    <footer className="footer">
+      <p>
+        © {new Date().getFullYear()} {SITE_NAME}. Designed and built by Matthew Klette.
+      </p>
+      <nav aria-label="Elsewhere" className="footer-links">
+        {LINKS.map((l) => (
+          <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
+            {l.label}
           </a>
-        </div>
-      </div>
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-4 border-t border-border px-6 py-8 font-mono text-xs text-fg-muted sm:flex-row">
-        <p>
-          © {new Date().getFullYear()} {SITE_NAME}
-        </p>
-      </div>
+        ))}
+      </nav>
     </footer>
   );
 }

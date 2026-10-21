@@ -1,35 +1,28 @@
 import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import TechStack from "@/components/TechStack";
-import About from "@/components/About";
-import Builds from "@/components/Builds";
-import Skills from "@/components/Skills";
-import Work from "@/components/Work";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
-import Contact from "@/components/Contact";
+import Doors from "@/components/hero/Doors";
+import Work from "@/components/sections/Work";
+import Builds from "@/components/builds/Builds";
+import Stack from "@/components/sections/Stack";
+import About from "@/components/sections/About";
+import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
     <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <Nav />
-      <main className="flex-1">
-        <Hero />
-        <Services />
-        <TechStack />
+      <main id="main">
+        <Doors />
         <Work />
         <Builds />
-        <Skills />
+        <Stack />
         <About />
-        <Experience />
-        <Education />
         <Contact />
       </main>
       <Footer />
-      <ScrollToTop />
     </>
   );
 }
