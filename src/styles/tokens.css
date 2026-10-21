@@ -6,10 +6,10 @@
   --surface-card: #0a0a0c;
   --surface-elevated: #101012;
   --ink: #fcfdff;
-  --body: rgba(252, 253, 255, 0.86);
-  --charcoal: rgba(252, 253, 255, 0.7);
-  --mute: #a1a4a5;
-  --ash: #888e90;
+  --body: rgba(252, 253, 255, 0.9);
+  --charcoal: rgba(252, 253, 255, 0.8);
+  --mute: #b6b9ba;
+  --ash: #a2a7a9;
   --hairline: rgba(255, 255, 255, 0.06);
   --hairline-strong: rgba(255, 255, 255, 0.14);
   --divider: rgba(255, 255, 255, 0.04);

@@ -35,6 +35,16 @@ export default function Work() {
                   {cs.title}
                 </h3>
                 <span className="case-num">/{String(i + 1).padStart(2, "0")}</span>
+                {cs.stats && (
+                  <dl className="case-stats">
+                    {cs.stats.map((st) => (
+                      <div key={st.label}>
+                        <dt>{st.value}</dt>
+                        <dd>{st.label}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
               </div>
               <dl className="case-body">
                 <div>

@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { makeEvent, seeded, type StreamEvent } from "./streamModel";
 
-const ROWS = 22;
+const ROWS = 36;
+const TOP_ROWS = 14; // the rest fill the band below the copy
 const TICK_MS = 900;
 const START_CLOCK = 9 * 3_600_000 + 41 * 60_000; // 09:41, a fixed fictional morning
 
@@ -20,7 +21,7 @@ function createStream() {
   };
 }
 
-/** The analytics door's backdrop: a live-looking tag log. */
+/** The analytics door's texture: a live-looking tag log above and below the copy. */
 export default function EventStream({ reduced }: { reduced: boolean }) {
   const [next] = useState(createStream);
   const [rows, setRows] = useState<StreamEvent[]>(() => Array.from({ length: ROWS }, next).reverse());
@@ -31,25 +32,33 @@ export default function EventStream({ reduced }: { reduced: boolean }) {
     return () => window.clearInterval(timer);
   }, [reduced, next]);
 
+  const renderRow = (e: StreamEvent) => (
+    <li key={e.id} className="stream-row" data-name={e.name}>
+      <span className="stream-time">{e.time}</span>
+      <span className="stream-name">{e.name}</span>
+      <span className="stream-detail">{e.detail}</span>
+      <span className="stream-consent" data-consent={e.consent}>
+        ads {e.consent}
+      </span>
+      <span className="stream-routes">
+        {e.routes.map((rt) => (
+          <span key={rt.to} data-status={rt.status}>
+            {rt.to} {STATUS_LABEL[rt.status]}
+          </span>
+        ))}
+      </span>
+    </li>
+  );
+
+  // Two bands in the door's empty grid rows, so no row can ever sit behind the copy.
   return (
-    <ol className="stream" aria-hidden="true">
-      {rows.map((e) => (
-        <li key={e.id} className="stream-row" data-name={e.name}>
-          <span className="stream-time">{e.time}</span>
-          <span className="stream-name">{e.name}</span>
-          <span className="stream-detail">{e.detail}</span>
-          <span className="stream-consent" data-consent={e.consent}>
-            ads {e.consent}
-          </span>
-          <span className="stream-routes">
-            {e.routes.map((rt) => (
-              <span key={rt.to} data-status={rt.status}>
-                {rt.to} {STATUS_LABEL[rt.status]}
-              </span>
-            ))}
-          </span>
-        </li>
-      ))}
-    </ol>
+    <>
+      <ol className="stream stream-top" aria-hidden="true">
+        {rows.slice(0, TOP_ROWS).map(renderRow)}
+      </ol>
+      <ol className="stream stream-bottom" aria-hidden="true">
+        {rows.slice(TOP_ROWS).map(renderRow)}
+      </ol>
+    </>
   );
 }

@@ -39,6 +39,7 @@ export type CaseStudy = {
   problem: string;
   approach: string;
   outcomes: readonly string[];
+  stats?: readonly { value: string; label: string }[]; // shown large; each restates an outcome above
 };
 
 export const CASE_STUDIES: readonly CaseStudy[] = [
@@ -54,6 +55,12 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       "Wrote the server-side GTM audit (security, data quality, consent, maintainability) and led the fixes.",
       "Took web tags with Consent Mode v2 consent checks from zero to about a third of the container.",
       "Nearly doubled the server-side event streams feeding the data warehouse.",
+    ],
+    stats: [
+      { value: "181", label: "production GTM versions since January 2025" },
+      { value: "111 / 70", label: "web / server-side" },
+      { value: "~⅓", label: "of web tags now gated on Consent Mode v2, up from none" },
+      { value: "~2×", label: "server-side event streams into the warehouse" },
     ],
   },
   {
@@ -73,6 +80,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
     approach:
       "Built 4 production n8n automations, including a product-page content pipeline where Claude drafts and a person reviews before anything is published, with run-lock logic around shared state. Also contributed to an internal privacy scanner: headless scanning, report delivery and AI-generated reports.",
     outcomes: ["The content pipeline runs on its own up to the human review step, and overlapping runs are locked out."],
+    stats: [{ value: "4", label: "production n8n automations, each with a human review step" }],
   },
 ];
 

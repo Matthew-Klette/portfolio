@@ -17,7 +17,7 @@ export type Clear = { x: number; y: number };
  * On portrait screens the type fills the width, so cards keep to bands above and below it.
  */
 export function keepOut(aspect: number): Clear {
-  return aspect >= 1 ? { x: 0.62, y: 0.58 } : { x: 1.7, y: 0.46 };
+  return aspect >= 1 ? { x: 0.62, y: 0.58 } : { x: 1.7, y: 0.56 };
 }
 
 /** Fewer cards on portrait screens, where the same field would crowd a narrow view. */

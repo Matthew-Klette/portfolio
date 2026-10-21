@@ -43,9 +43,7 @@ export default function Doors() {
       </h1>
 
       <article className="door door-analytics" aria-labelledby="door-analytics-title">
-        <div className="door-backdrop">
-          <EventStream reduced={reduced} />
-        </div>
+        <EventStream reduced={reduced} />
         <div className="door-glow door-glow-blue" aria-hidden="true" />
         <div className="door-content">
           <p className="eyebrow">01 · Analytics engineering</p>
