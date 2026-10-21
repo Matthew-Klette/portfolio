@@ -56,7 +56,7 @@ export default function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <SectionEyebrow number="05" label="EXPERIENCE" />
+        <SectionEyebrow number="06" label="EXPERIENCE" />
       </Reveal>
 
       <Reveal>

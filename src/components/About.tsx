@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <SectionEyebrow number="04" label="ABOUT" />
+        <SectionEyebrow number="05" label="ABOUT" />
       </Reveal>
       <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
         <Reveal>

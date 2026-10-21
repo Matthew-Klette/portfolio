@@ -17,7 +17,7 @@ export default function Education() {
   return (
     <section id="education" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <SectionEyebrow number="06" label="EDUCATION" />
+        <SectionEyebrow number="07" label="EDUCATION" />
       </Reveal>
       <Reveal>
         <div className="rounded-2xl border border-border p-6 sm:p-8">

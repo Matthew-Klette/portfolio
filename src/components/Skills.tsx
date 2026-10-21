@@ -92,7 +92,7 @@ export default function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <SectionEyebrow number="03" label="SKILLS" />
+        <SectionEyebrow number="04" label="SKILLS" />
         <h2 className="mb-14 max-w-2xl font-heading text-3xl leading-tight tracking-tight text-fg sm:text-4xl">
           The stack I use to keep tracking and automation systems honest.
         </h2>

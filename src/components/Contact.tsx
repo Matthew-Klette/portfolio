@@ -12,7 +12,7 @@ export default function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <SectionEyebrow number="07" label="CONTACT" />
+        <SectionEyebrow number="08" label="CONTACT" />
         <h2 className="mb-6 max-w-3xl font-heading text-3xl leading-tight tracking-tight text-fg sm:text-4xl">
           Revenue numbers don&apos;t match across GA4, your ad platforms and
           your order system?

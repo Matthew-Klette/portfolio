@@ -18,7 +18,7 @@ const CASE_STUDIES: CaseStudy[] = [
     approach:
       "Build and publish changes across the web and server-side GTM containers on Stape. Trace each event from the dataLayer through the server container to Meta CAPI and Google Ads, deduplicate browser and server conversions, and gate tags on Consent Mode v2.",
     outcomes: [
-      "Authored 249 production GTM releases across web and server-side containers since January 2025, over 80% of all releases since I started.",
+      "Created 181 production GTM versions (111 web, 70 server-side) since January 2025.",
       "Wrote the server-side GTM audit (security, data quality, consent, maintainability) and led the fixes.",
       "Took web tags with Consent Mode v2 consent checks from zero to about a third of the container.",
       "Nearly doubled the server-side event streams feeding the data warehouse.",
