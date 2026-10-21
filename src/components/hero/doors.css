@@ -1,8 +1,13 @@
+/* One grid for both doors: the five content rows (eyebrow, title, text, chips, actions)
+   are shared through subgrid, so each row lines up across the two halves. */
 .doors {
   position: relative;
-  display: flex;
-  min-height: max(100svh, 680px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(112px, 1fr) repeat(5, auto) minmax(112px, 1fr);
+  min-height: max(100svh, 720px);
   border-bottom: 1px solid var(--hairline);
+  transition: grid-template-columns 700ms var(--ease-out);
 }
 
 .doors-intro {
@@ -30,13 +35,20 @@
 
 .door {
   position: relative;
-  flex: 1 1 0;
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-rows: subgrid;
   min-width: 0;
-  display: flex;
-  align-items: center;
   overflow: hidden;
   isolation: isolate;
-  transition: flex-grow 700ms var(--ease-out);
+}
+
+.door-analytics {
+  grid-column: 1;
+}
+
+.door-builds {
+  grid-column: 2;
 }
 
 .door + .door {
@@ -44,8 +56,11 @@
 }
 
 @media (hover: hover) and (min-width: 861px) {
-  .doors:has(.door:hover) .door:hover {
-    flex-grow: 1.32;
+  .doors:has(.door-analytics:hover) {
+    grid-template-columns: 1.32fr 1fr;
+  }
+  .doors:has(.door-builds:hover) {
+    grid-template-columns: 1fr 1.32fr;
   }
   .doors:has(.door:hover) .door:not(:hover) .door-content {
     opacity: 0.55;
@@ -93,12 +108,14 @@
 }
 
 .door-content {
-  width: min(100%, 520px);
-  margin: 0 auto;
-  padding: 120px clamp(20px, 4vw, 56px) 120px;
+  grid-row: 2 / 7;
   display: grid;
-  gap: 20px;
+  grid-template-rows: subgrid;
+  row-gap: 20px;
+  align-items: start;
   justify-items: start;
+  justify-self: center;
+  width: min(100% - 2 * clamp(20px, 4vw, 56px), 520px);
   transition: opacity 500ms var(--ease-out);
 }
 
@@ -110,6 +127,7 @@
 }
 
 .door-title em {
+  display: block; /* both doors break before the italic phrase */
   color: var(--charcoal);
 }
 
@@ -203,7 +221,7 @@
   color: rgba(252, 253, 255, 0.2);
   /* keep the log out from behind the copy: visible at the edges, gone in the middle */
   mask-image:
-    radial-gradient(48% 40% at 50% 52%, transparent 0 55%, #000 100%),
+    radial-gradient(64% 44% at 50% 50%, transparent 0 62%, #000 100%),
     linear-gradient(transparent 6%, #000 24%, #000 80%, transparent 98%);
   mask-composite: intersect;
   opacity: 0.9;
@@ -257,6 +275,7 @@
 
 @media (max-width: 860px) {
   .doors {
+    display: flex;
     flex-direction: column;
     min-height: 0;
   }
@@ -268,6 +287,8 @@
     background: none;
   }
   .door {
+    display: flex;
+    align-items: center;
     min-height: 78svh;
   }
   .door + .door {
@@ -275,7 +296,9 @@
     border-top: 1px solid var(--hairline-strong);
   }
   .door-content {
-    padding: 72px var(--gutter) 72px;
+    grid-template-rows: none;
+    width: 100%;
+    padding: 72px var(--gutter);
   }
   .stream {
     padding-top: 24px;

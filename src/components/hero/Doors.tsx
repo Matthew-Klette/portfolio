@@ -82,6 +82,9 @@ export default function Doors() {
           <h2 id="door-builds-title" className="door-title">
             Sites you can <em>step inside.</em>
           </h2>
+          <p className="door-text">
+            {BUILDS.length} concept sites, scroll stories and motion pieces, each one live and built from scratch in code.
+          </p>
           <p className="door-now" aria-live="polite">
             <span className="status-dot" aria-hidden="true" />
             Now showing
@@ -94,9 +97,6 @@ export default function Doors() {
                 <img key={`${build.slug}-${src}`} src={src} alt="" className={`door-thumb door-thumb-${i}`} />
               ))}
             </span>
-          </p>
-          <p className="door-text">
-            {BUILDS.length} concept sites, scroll stories and motion pieces, each one live and built from scratch in code.
           </p>
           <div className="door-actions">
             <a href="#builds" className="button-primary">
